@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Literary Atlas — 100 Essential Writers</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0805;
+  --deep: #111009;
+  --card-bg: #161410;
+  --card-hover: #1e1b16;
+  --cream: #f2ead8;
+  --warm-white: #e8dfc8;
+  --gold: #c8972a;
+  --gold-dim: #8a6419;
+  --rust: #c4492a;
+  --sage: #4a7c5a;
+  --slate: #3a5a72;
+  --violet: #5a3a72;
+  --amber: #d4821a;
+  --muted: #6a5f4a;
+  --border: rgba(200,151,42,0.15);
+  --border-bright: rgba(200,151,42,0.4);
+  --text-body: #c8bda8;
+  --text-dim: #7a6e58;
+  --text-bright: #e8dfc8;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text-body);
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 15px;
+  line-height: 1.75;
+  cursor: default;
+  overflow-x: hidden;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1000;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.35;
+}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,151,42,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(196,73,42,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(90,58,114,0.04) 0%, transparent 60%);
+}
+
+.hero-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(200,151,42,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,151,42,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(64px, 12vw, 160px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  color: var(--cream);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.35s forwards;
+}
+
+.hero-title em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-style: italic;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto 48px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.5s forwards;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 64px;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.65s forwards;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1;
+  display: block;
+}
+
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+  display: block;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--gold-dim), transparent);
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.8s forwards;
+}
+
+.scroll-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--muted);
+  margin-top: 16px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.95s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════
+   STICKY NAV / CONTROLS
+══════════════════════════════════════ */
+.controls-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(10,8,5,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+}
+
+.controls-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  flex-wrap: wrap;
+}
+
+.controls-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold);
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.controls-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.filter-group {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.fbtn {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+
+.fbtn:hover { color: var(--cream); border-color: rgba(255,255,255,0.25); }
+.fbtn.active { background: var(--gold); border-color: var(--gold); color: var(--black); }
+
+.search-box {
+  margin-left: auto;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.search-box input {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 13px;
+  padding: 6px 14px 6px 34px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  border-radius: 2px;
+  width: 220px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-box input:focus { border-color: var(--gold-dim); }
+.search-box input::placeholder { color: var(--text-dim); }
+
+.search-icon {
+  position: absolute;
+  left: 10px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-dim);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.count-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  white-space: nowrap;
+  margin-left: 4px;
+}
+
+/* ══════════════════════════════════════
+   MAIN CONTENT
+══════════════════════════════════════ */
+.main {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+}
+
+/* ── Century divider ── */
+.century-block {
+  padding-top: 72px;
+}
+
+.century-banner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.century-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(80px, 10vw, 140px);
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(200,151,42,0.3);
+  letter-spacing: -4px;
+  user-select: none;
+}
+
+.century-info { min-width: 0; }
+
+.century-era {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.century-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.century-desc {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 500px;
+}
+
+.century-tally {
+  text-align: right;
+}
+
+.century-tally-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--gold-dim);
+  line-height: 1;
+  display: block;
+}
+
+.century-tally-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ── Writer grid ── */
+.writers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+/* ── Writer card ── */
+.wcard {
+  background: var(--card-bg);
+  padding: 28px 32px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.25s;
+  cursor: default;
+}
+
+.wcard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent-color, var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.wcard:hover { background: var(--card-hover); }
+.wcard:hover::before { transform: scaleX(1); }
+
+.wcard.hidden { display: none; }
+
+/* accent colours per region */
+.wcard[data-region="Europe"] { --accent-color: var(--sage); }
+.wcard[data-region="Russia"] { --accent-color: #9c3a3a; }
+.wcard[data-region="North America"] { --accent-color: var(--slate); }
+.wcard[data-region="Latin America"] { --accent-color: var(--rust); }
+.wcard[data-region="Africa"] { --accent-color: #b87a2a; }
+.wcard[data-region="Asia"] { --accent-color: var(--violet); }
+.wcard[data-region="Middle East"] { --accent-color: #3a8a72; }
+.wcard[data-region="Oceania"] { --accent-color: #3a72a2; }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.card-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--accent-color, var(--gold));
+  margin-top: 3px;
+}
+
+.card-region {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--accent-color, var(--gold));
+  padding: 3px 8px 2px;
+  border-radius: 1px;
+}
+
+.card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.card-dates {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.card-works-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-color, var(--gold));
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.card-works {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.card-works li {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--warm-white);
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(200,151,42,0.07);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.card-works li:last-child { border-bottom: none; }
+
+.work-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  font-style: normal;
+  flex-shrink: 0;
+}
+
+.card-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+.card-context {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.card-context strong {
+  color: var(--text-bright);
+  font-weight: 700;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 2px 7px;
+  border-radius: 1px;
+}
+
+.nobel-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(200,151,42,0.3);
+  padding: 2px 8px;
+  border-radius: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── No results ── */
+.no-results {
+  grid-column: 1/-1;
+  padding: 80px 40px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--muted);
+}
+
+/* ── LEGEND ── */
+.legend-bar {
+  max-width: 1500px;
+  margin: 32px auto 0;
+  padding: 0 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.legend-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.ldot {
+  width: 8px; height: 8px;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 32px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.footer-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 620px;
+  margin: 0 auto 16px;
+  line-height: 1.5;
+}
+
+.footer-attr {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+}
+
+.footer-note {
+  margin-top: 32px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: rgba(106,95,74,0.5);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .hero { padding: 60px 24px; }
+  .hero-stats { gap: 28px; }
+  .controls-wrap { padding: 0 16px; }
+  .main { padding: 0 16px 60px; }
+  .writers-grid { grid-template-columns: 1fr; }
+  .century-banner { grid-template-columns: 1fr; gap: 8px; }
+  .century-num { font-size: 56px; }
+  .century-tally { display: none; }
+  .search-box input { width: 160px; }
+  .wcard { padding: 22px 20px 26px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-eyebrow">A curated literary atlas · 19th–21st century</div>
+  <h1 class="hero-title">
+    The Literary<br>
+    <em>Atlas</em>
+  </h1>
+  <p class="hero-subtitle">One hundred writers who changed the course of world literature — and the books you must read</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">100</span>
+      <span class="stat-label">Writers</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">380+</span>
+      <span class="stat-label">Essential Books</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Centuries</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">7</span>
+      <span class="stat-label">World Regions</span>
+    </div>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="scroll-hint">↓ Scroll to explore</div>
+</section>
+
+<!-- ═══ CONTROLS ═══ -->
+<div class="controls-wrap">
+  <div class="controls-inner">
+    <span class="controls-logo">Literary Atlas</span>
+    <div class="controls-divider"></div>
+    <div class="filter-group" id="filterGroup">
+      <button class="fbtn active" data-filter="all">All</button>
+      <button class="fbtn" data-filter="19th">19th C.</button>
+      <button class="fbtn" data-filter="20th">20th C.</button>
+      <button class="fbtn" data-filter="21st">21st C.</button>
+      <button class="fbtn" data-filter="Europe">Europe</button>
+      <button class="fbtn" data-filter="Russia">Russia / E. Europe</button>
+      <button class="fbtn" data-filter="North America">North America</button>
+      <button class="fbtn" data-filter="Latin America">Latin America</button>
+      <button class="fbtn" data-filter="Africa">Africa</button>
+      <button class="fbtn" data-filter="Asia">Asia</button>
+      <button class="fbtn" data-filter="Middle East">Middle East</button>
+      <button class="fbtn" data-filter="nobel">Nobel Laureates</button>
+    </div>
+    <span class="count-badge" id="countBadge">100 / 100</span>
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="searchInput" placeholder="Search writers, books, themes…">
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LEGEND ═══ -->
+<div class="legend-bar">
+  <span class="legend-label">Regions:</span>
+  <div class="legend-item"><div class="ldot" style="background:#4a7c5a"></div>Europe</div>
+  <div class="legend-item"><div class="ldot" style="background:#9c3a3a"></div>Russia / E. Europe</div>
+  <div class="legend-item"><div class="ldot" style="background:#3a5a72"></div>North America</div>
+  <div class="legend-item"><div class="ldot" style="background:#c4492a"></div>Latin America</div>
+  <div class="legend-item"><div class="ldot" style="background:#b87a2a"></div>Africa</div>
+  <div class="legend-item"><div class="ldot" style="background:#5a3a72"></div>Asia</div>
+  <div class="legend-item"><div class="ldot" style="background:#3a8a72"></div>Middle East</div>
+</div>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<main class="main" id="mainContent"></main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p class="footer-quote">"A reader lives a thousand lives before he dies. The man who never reads lives only one."</p>
+  <p class="footer-attr">— George R.R. Martin</p>
+  <p class="footer-note">This site may contain affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.</p>
+</footer>
+
+<script>
+const WRITERS = [
+
+// ╔══════════════════════════════════╗
+// ║       19th CENTURY               ║
+// ╚══════════════════════════════════╝
+
+{ num:"001", c:"19th", region:"Russia",
+  name:"Leo Tolstoy", dates:"1828–1910 · Russia",
+  nobel: false,
+  works:[
+    {title:"War and Peace", year:"1869"},
+    {title:"Anna Karenina", year:"1878"},
+    {title:"The Death of Ivan Ilyich", year:"1886"},
+    {title:"Resurrection", year:"1899"},
+    {title:"The Kreutzer Sonata", year:"1889"},
+  ],
+  context:"Writing in Tsarist Russia during profound social upheaval, Tolstoy created the definitive realist novel. His vast, compassionate panoramas of Russian life — aristocracy, peasantry, war — remain unmatched in scope and psychological depth. A count by birth, he later renounced his wealth and became a radical Christian pacifist.",
+  tags:["Realism","Epic","War","Psychology","Russia"]
+},
+
+{ num:"002", c:"19th", region:"Russia",
+  name:"Fyodor Dostoevsky", dates:"1821–1881 · Russia",
+  nobel: false,
+  works:[
+    {title:"Crime and Punishment", year:"1866"},
+    {title:"The Brothers Karamazov", year:"1880"},
+    {title:"The Idiot", year:"1869"},
+    {title:"Demons", year:"1872"},
+    {title:"Notes from Underground", year:"1864"},
+  ],
+  context:"A former political prisoner who faced a mock execution before Siberian exile, Dostoevsky channelled trauma, faith, and moral philosophy into towering psychological novels. He practically invented modern existentialist fiction, and every great novelist of the 20th century owed him a debt.",
+  tags:["Psychology","Philosophy","Russia","Existentialism","Faith"]
+},
+
+{ num:"003", c:"19th", region:"Europe",
+  name:"Gustave Flaubert", dates:"1821–1880 · France",
+  nobel: false,
+  works:[
+    {title:"Madame Bovary", year:"1857"},
+    {title:"Sentimental Education", year:"1869"},
+    {title:"A Simple Heart", year:"1877"},
+    {title:"Salammbô", year:"1862"},
+  ],
+  context:"Flaubert's agonised perfectionism — sometimes a single sentence took days — transformed the novel into high art. His cold, precise dissection of provincial bourgeois life in <strong>Madame Bovary</strong> scandalised France at its 1857 obscenity trial and founded literary realism. He famously said 'Madame Bovary, c'est moi.'",
+  tags:["Realism","France","Perfectionism","Bourgeoisie"]
+},
+
+{ num:"004", c:"19th", region:"Europe",
+  name:"Charles Dickens", dates:"1812–1870 · England",
+  nobel: false,
+  works:[
+    {title:"Great Expectations", year:"1861"},
+    {title:"Bleak House", year:"1853"},
+    {title:"David Copperfield", year:"1850"},
+    {title:"A Tale of Two Cities", year:"1859"},
+    {title:"Oliver Twist", year:"1838"},
+  ],
+  context:"The great chronicler of Victorian England's industrial poverty, Dickens serialised his novels for mass audiences, combining social outrage with unforgettable characters. He essentially created the modern popular novel and used fiction as a political weapon against the workhouses, debtors' prisons, and child labour of his age.",
+  tags:["Victorian","Social Critique","England","Serialised Fiction"]
+},
+
+{ num:"005", c:"19th", region:"Europe",
+  name:"George Eliot (Mary Ann Evans)", dates:"1819–1880 · England",
+  nobel: false,
+  works:[
+    {title:"Middlemarch", year:"1872"},
+    {title:"The Mill on the Floss", year:"1860"},
+    {title:"Silas Marner", year:"1861"},
+    {title:"Daniel Deronda", year:"1876"},
+  ],
+  context:"Writing under a male pseudonym to be taken seriously, Eliot produced some of the most intellectually formidable Victorian fiction. <strong>Middlemarch</strong> — a study of idealism, marriage, and society in a provincial English town — is repeatedly called the greatest novel in the English language.",
+  tags:["Victorian","Realism","England","Feminism","Philosophy"]
+},
+
+{ num:"006", c:"19th", region:"North America",
+  name:"Herman Melville", dates:"1819–1891 · USA",
+  nobel: false,
+  works:[
+    {title:"Moby-Dick", year:"1851"},
+    {title:"Bartleby, the Scrivener", year:"1853"},
+    {title:"Billy Budd", year:"1924"},
+    {title:"Typee", year:"1846"},
+  ],
+  context:"Melville's <strong>Moby-Dick</strong> failed commercially in his lifetime but is now the great American epic — a whaling adventure that becomes a meditation on obsession, God, and the void. He worked as a New York customs inspector for decades in obscurity, dying almost forgotten, before being rediscovered in the 1920s.",
+  tags:["Epic","Sea","Symbolism","USA","Metaphysics"]
+},
+
+{ num:"007", c:"19th", region:"North America",
+  name:"Mark Twain", dates:"1835–1910 · USA",
+  nobel: false,
+  works:[
+    {title:"Adventures of Huckleberry Finn", year:"1884"},
+    {title:"The Adventures of Tom Sawyer", year:"1876"},
+    {title:"The Prince and the Pauper", year:"1881"},
+    {title:"A Connecticut Yankee in King Arthur's Court", year:"1889"},
+  ],
+  context:"The first great American vernacular voice. Twain captured the pre-Civil War Mississippi River world with humour, sharp social satire, and a groundbreaking use of dialect that influenced virtually every American writer who followed. Hemingway said: 'All modern American literature comes from one book by Mark Twain.'",
+  tags:["Satire","USA","Race","Vernacular","Humour"]
+},
+
+{ num:"008", c:"19th", region:"Europe",
+  name:"Émile Zola", dates:"1840–1902 · France",
+  nobel: false,
+  works:[
+    {title:"Germinal", year:"1885"},
+    {title:"Nana", year:"1880"},
+    {title:"L'Assommoir", year:"1877"},
+    {title:"The Beast Within", year:"1890"},
+    {title:"Thérèse Raquin", year:"1867"},
+  ],
+  context:"The founding father of literary naturalism, Zola spent years researching coal mines and the Paris underworld to write his 20-novel Rougon-Macquart cycle. His political courage was legendary — his open letter <em>J'Accuse</em> during the Dreyfus Affair is one of history's greatest acts of journalistic bravery.",
+  tags:["Naturalism","France","Working Class","Social Critique","Cycle"]
+},
+
+{ num:"009", c:"19th", region:"Europe",
+  name:"Thomas Hardy", dates:"1840–1928 · England",
+  nobel: false,
+  works:[
+    {title:"Tess of the d'Urbervilles", year:"1891"},
+    {title:"Far from the Madding Crowd", year:"1874"},
+    {title:"Jude the Obscure", year:"1895"},
+    {title:"The Return of the Native", year:"1878"},
+    {title:"The Mayor of Casterbridge", year:"1886"},
+  ],
+  context:"Hardy mourned the dying agricultural world of rural Wessex as industrialisation swept it away. His tragic vision — fate and society crushing individual desire — was so controversial that <strong>Jude the Obscure</strong> was denounced from pulpits and burned by a bishop, driving Hardy away from novels entirely.",
+  tags:["Tragedy","Rural England","Victorian","Fate","Nature"]
+},
+
+{ num:"010", c:"19th", region:"Russia",
+  name:"Anton Chekhov", dates:"1860–1904 · Russia",
+  nobel: false,
+  works:[
+    {title:"The Cherry Orchard", year:"1904"},
+    {title:"The Lady with the Dog", year:"1899"},
+    {title:"Ward No. 6", year:"1892"},
+    {title:"Three Sisters", year:"1900"},
+    {title:"The Duel", year:"1891"},
+  ],
+  context:"A doctor who treated the rural poor, Chekhov perfected the modern short story — plotless, ambiguous, humane. His technique — meaning below the surface, emotion withheld — influenced every story writer of the 20th century. He wrote with precision born of clinical observation and profound human sympathy.",
+  tags:["Short Stories","Russia","Realism","Drama","Humanism"]
+},
+
+{ num:"011", c:"19th", region:"North America",
+  name:"Henry James", dates:"1843–1916 · USA / England",
+  nobel: false,
+  works:[
+    {title:"The Portrait of a Lady", year:"1881"},
+    {title:"The Wings of the Dove", year:"1902"},
+    {title:"The Ambassadors", year:"1903"},
+    {title:"The Turn of the Screw", year:"1898"},
+    {title:"The Bostonians", year:"1886"},
+  ],
+  context:"James spent his career mapping the psychological complexities of Americans encountering European culture. His late style — enormously elaborate, introspective — pushed the novel toward stream of consciousness and modernism. He was the first major writer to make the inner life the true subject of fiction.",
+  tags:["Psychological","USA","Europe","Class","Modernism"]
+},
+
+{ num:"012", c:"19th", region:"Europe",
+  name:"Honoré de Balzac", dates:"1799–1850 · France",
+  nobel: false,
+  works:[
+    {title:"Père Goriot", year:"1835"},
+    {title:"Cousin Bette", year:"1847"},
+    {title:"Lost Illusions", year:"1837"},
+    {title:"Eugénie Grandet", year:"1833"},
+    {title:"The Wild Ass's Skin", year:"1831"},
+  ],
+  context:"Balzac's 90-novel <em>La Comédie Humaine</em> is among the most ambitious projects in literary history — a panoramic portrait of French society after Napoleon. He worked by night, surviving on coffee, creating hundreds of recurring characters across novels. Marx and Engels cited him as a greater social historian than any economist.",
+  tags:["Realism","France","Society","Ambition","Epic Cycle"]
+},
+
+{ num:"013", c:"19th", region:"Europe",
+  name:"Stendhal (Marie-Henri Beyle)", dates:"1783–1842 · France",
+  nobel: false,
+  works:[
+    {title:"The Red and the Black", year:"1830"},
+    {title:"The Charterhouse of Parma", year:"1839"},
+    {title:"On Love", year:"1822"},
+  ],
+  context:"A Napoleonic soldier and diplomat, Stendhal wrote with astonishing psychological clarity about ambition, love, and hypocrisy in post-revolutionary France. Tolstoy said he learned to describe the chaos of battle from Stendhal. Nietzsche called him 'the last great French psychologist.' He anticipated modernism by a century.",
+  tags:["Psychological","France","Ambition","Napoleonic","Realism"]
+},
+
+{ num:"014", c:"19th", region:"Russia",
+  name:"Nikolai Gogol", dates:"1809–1852 · Ukraine / Russia",
+  nobel: false,
+  works:[
+    {title:"Dead Souls", year:"1842"},
+    {title:"The Overcoat", year:"1842"},
+    {title:"The Government Inspector", year:"1836"},
+    {title:"Diary of a Madman", year:"1835"},
+  ],
+  context:"A Ukrainian-born writer whose grotesque, satirical vision of provincial Russian officialdom was unlike anything before it. Dostoevsky reportedly said: <em>'We all came out from Gogol's Overcoat.'</em> Gogol burned the second volume of Dead Souls in a religious breakdown and died days later, an act of literary tragedy without parallel.",
+  tags:["Satire","Grotesque","Russia","Ukraine","Black Humour"]
+},
+
+{ num:"015", c:"19th", region:"Europe",
+  name:"Victor Hugo", dates:"1802–1885 · France",
+  nobel: false,
+  works:[
+    {title:"Les Misérables", year:"1862"},
+    {title:"The Hunchback of Notre-Dame", year:"1831"},
+    {title:"Ninety-Three", year:"1874"},
+    {title:"The Man Who Laughs", year:"1869"},
+  ],
+  context:"The most towering figure of French Romanticism, Hugo was novelist, poet, and political conscience rolled into one. <strong>Les Misérables</strong> — with Jean Valjean's redemptive journey through post-revolutionary France — is among the most widely read novels in history. He spent 19 years in political exile for opposing Napoleon III.",
+  tags:["Romanticism","France","Social Justice","Epic","Revolution"]
+},
+
+{ num:"016", c:"19th", region:"Europe",
+  name:"Leo Tolstoy (Early)", dates:"1828–1910 · Russia", // Appears in both as two distinct phases
+  name:"Nikolai Leskov", dates:"1831–1895 · Russia",
+  nobel: false,
+  works:[
+    {title:"Lady Macbeth of Mtsensk", year:"1865"},
+    {title:"The Enchanted Wanderer", year:"1873"},
+    {title:"Cathedral Folk", year:"1872"},
+    {title:"The Left-Handed Craftsman", year:"1881"},
+  ],
+  context:"The great overlooked Russian — Tolstoy called him 'the most Russian of writers.' Leskov wrote kaleidoscopic tales of merchants, priests, and craftsmen in a deliberately skewed, often comic vernacular unlike any other Russian prose. Shostakovich made Lady Macbeth of Mtsensk into one of the 20th century's greatest operas.",
+  tags:["Russia","Folk Tales","Vernacular","Clergy","Humour"]
+},
+
+// ╔══════════════════════════════════╗
+// ║       20th CENTURY               ║
+// ╚══════════════════════════════════╝
+
+{ num:"017", c:"20th", region:"Europe",
+  name:"James Joyce", dates:"1882–1941 · Ireland",
+  nobel: false,
+  works:[
+    {title:"Ulysses", year:"1922"},
+    {title:"Dubliners", year:"1914"},
+    {title:"A Portrait of the Artist as a Young Man", year:"1916"},
+    {title:"Finnegans Wake", year:"1939"},
+  ],
+  context:"Joyce remade the novel from the ground up. <strong>Ulysses</strong> — mapping one single day in Dublin using 18 completely different prose styles — is the supreme modernist experiment. A self-imposed exile from Ireland, he wrote with encyclopaedic ambition about his small, beloved, suffocating city from apartments in Trieste, Zurich, and Paris.",
+  tags:["Modernism","Stream of Consciousness","Ireland","Experimental","Language"]
+},
+
+{ num:"018", c:"20th", region:"Europe",
+  name:"Virginia Woolf", dates:"1882–1941 · England",
+  nobel: false,
+  works:[
+    {title:"Mrs Dalloway", year:"1925"},
+    {title:"To the Lighthouse", year:"1927"},
+    {title:"The Waves", year:"1931"},
+    {title:"Orlando", year:"1928"},
+    {title:"A Room of One's Own", year:"1929"},
+  ],
+  context:"Woolf pioneered stream-of-consciousness prose and wrote essays that still define feminist literary criticism. Her novels dissolve plot into pure interior experience — luminous, impressionistic, profoundly original. She was also a co-founder of the Hogarth Press, which published T.S. Eliot and Freud in England.",
+  tags:["Modernism","Feminism","England","Consciousness","Impressionism"]
+},
+
+{ num:"019", c:"20th", region:"Europe",
+  name:"Franz Kafka", dates:"1883–1924 · Bohemia",
+  nobel: false,
+  works:[
+    {title:"The Trial", year:"1925"},
+    {title:"The Metamorphosis", year:"1915"},
+    {title:"The Castle", year:"1926"},
+    {title:"In the Penal Colony", year:"1919"},
+    {title:"Amerika", year:"1927"},
+  ],
+  context:"A German-speaking Czech Jew working in Prague insurance, Kafka wrote parables of bureaucratic terror and existential helplessness so vivid that his name became an adjective. He asked his friend Max Brod to burn his manuscripts after his death. Brod kept them, giving the world three unfinished masterpieces.",
+  tags:["Existentialism","Absurdism","Bureaucracy","Allegory","Czech Republic"]
+},
+
+{ num:"020", c:"20th", region:"Europe",
+  name:"Marcel Proust", dates:"1871–1922 · France",
+  nobel: false,
+  works:[
+    {title:"Swann's Way", year:"1913"},
+    {title:"In the Shadow of Young Girls in Flower", year:"1919"},
+    {title:"The Guermantes Way", year:"1920"},
+    {title:"Sodom and Gomorrah", year:"1921"},
+    {title:"Time Regained", year:"1927"},
+  ],
+  context:"Proust spent his last decade working in a cork-lined bedroom on the most elaborate novel in French literature — a 4,000-page meditation on memory, time, art, and Parisian society. The seven-volume <em>In Search of Lost Time</em> begins with perhaps the most famous sentence in world literature: a madeleine dipped in tea.",
+  tags:["Memory","France","Consciousness","Society","Modernism"]
+},
+
+{ num:"021", c:"20th", region:"North America",
+  name:"William Faulkner", dates:"1897–1962 · USA",
+  nobel: true,
+  works:[
+    {title:"The Sound and the Fury", year:"1929"},
+    {title:"As I Lay Dying", year:"1930"},
+    {title:"Absalom, Absalom!", year:"1936"},
+    {title:"Light in August", year:"1932"},
+    {title:"The Bear", year:"1942"},
+  ],
+  context:"Set in fictional Yoknapatawpha County, Mississippi, Faulkner's novels dissect the American South's collapse — race, family, time, and guilt — in a dense, multiply-voiced style of extraordinary difficulty. He wrote some of his finest work while employed as a Hollywood screenwriter. Nobel Prize 1949.",
+  tags:["American South","Modernism","Race","Family","Stream of Consciousness"]
+},
+
+{ num:"022", c:"20th", region:"Europe",
+  name:"Albert Camus", dates:"1913–1960 · Algeria / France",
+  nobel: true,
+  works:[
+    {title:"The Stranger", year:"1942"},
+    {title:"The Plague", year:"1947"},
+    {title:"The Fall", year:"1956"},
+    {title:"The Myth of Sisyphus", year:"1942"},
+    {title:"The First Man", year:"1994"},
+  ],
+  context:"Born in colonial Algeria in poverty, Camus became the conscience of post-war European literature. His philosophy of the absurd — we must imagine Sisyphus happy — and his clear, spare prose style made him one of the most widely read writers of the century. He died in a car crash at 46, with an unfinished manuscript in his briefcase. Nobel Prize 1957.",
+  tags:["Absurdism","Algeria","France","Existentialism","Philosophy"]
+},
+
+{ num:"023", c:"20th", region:"Europe",
+  name:"Samuel Beckett", dates:"1906–1989 · Ireland / France",
+  nobel: true,
+  works:[
+    {title:"Waiting for Godot", year:"1953"},
+    {title:"Molloy", year:"1951"},
+    {title:"Malone Dies", year:"1951"},
+    {title:"The Unnamable", year:"1953"},
+    {title:"Murphy", year:"1938"},
+  ],
+  context:"An Irish writer who chose to write in French to force himself into simplicity, Beckett stripped language to its bare minimum. His work depicts consciousness without hope — and yet is often very funny. He served in the French Resistance during WWII. His reply when asked why he wrote in French: 'In French it is easier to write without style.' Nobel Prize 1969.",
+  tags:["Absurdism","Ireland","Minimalism","Experimental","Philosophy"]
+},
+
+{ num:"024", c:"20th", region:"North America",
+  name:"Ernest Hemingway", dates:"1899–1961 · USA",
+  nobel: true,
+  works:[
+    {title:"The Sun Also Rises", year:"1926"},
+    {title:"A Farewell to Arms", year:"1929"},
+    {title:"For Whom the Bell Tolls", year:"1940"},
+    {title:"The Old Man and the Sea", year:"1952"},
+    {title:"A Moveable Feast", year:"1964"},
+  ],
+  context:"A WWI ambulance driver, war correspondent, and big-game hunter, Hemingway developed his iceberg theory of prose — minimal surface, immense depth below. His stripped, declarative style defined mid-century American fiction and has been imitated by millions. Nobel Prize 1954.",
+  tags:["Minimalism","War","USA","Masculinity","Lost Generation"]
+},
+
+{ num:"025", c:"20th", region:"North America",
+  name:"F. Scott Fitzgerald", dates:"1896–1940 · USA",
+  nobel: false,
+  works:[
+    {title:"The Great Gatsby", year:"1925"},
+    {title:"Tender Is the Night", year:"1934"},
+    {title:"This Side of Paradise", year:"1920"},
+    {title:"The Beautiful and Damned", year:"1922"},
+  ],
+  context:"The poet of the Jazz Age, Fitzgerald wrote about American wealth, beauty, and their inevitable corruption with lyric prose unmatched by his contemporaries. He died believing himself a failure; <strong>The Great Gatsby</strong> has sold over 25 million copies. His wife Zelda's breakdown and his own alcoholism shadowed his entire career.",
+  tags:["Jazz Age","USA","The American Dream","Tragedy","1920s"]
+},
+
+{ num:"026", c:"20th", region:"Latin America",
+  name:"Gabriel García Márquez", dates:"1927–2014 · Colombia",
+  nobel: true,
+  works:[
+    {title:"One Hundred Years of Solitude", year:"1967"},
+    {title:"Love in the Time of Cholera", year:"1985"},
+    {title:"Chronicle of a Death Foretold", year:"1981"},
+    {title:"The Autumn of the Patriarch", year:"1975"},
+    {title:"No One Writes to the Colonel", year:"1961"},
+  ],
+  context:"The founding father of magical realism, García Márquez wove myth, political history, and the tropical world of the Colombian coast into fiction of extraordinary richness. When <strong>One Hundred Years of Solitude</strong> was published in 1967, the poet Pablo Neruda called it 'the greatest revelation in the Spanish language since Don Quixote.' Nobel Prize 1982.",
+  tags:["Magical Realism","Colombia","Latin America","Family","History"]
+},
+
+{ num:"027", c:"20th", region:"Latin America",
+  name:"Jorge Luis Borges", dates:"1899–1986 · Argentina",
+  nobel: false,
+  works:[
+    {title:"Ficciones", year:"1944"},
+    {title:"The Aleph", year:"1949"},
+    {title:"Labyrinths", year:"1962"},
+    {title:"A Universal History of Infamy", year:"1935"},
+    {title:"Dreamtigers", year:"1960"},
+  ],
+  context:"Borges never wrote a novel but his short stories — about infinite libraries, mirrors, labyrinths, and circular time — invented a new mode of fiction that influenced everyone from Umberto Eco to Salman Rushdie to Thomas Pynchon. He is arguably the most influential short fiction writer of the 20th century.",
+  tags:["Metafiction","Argentina","Philosophy","Labyrinths","Postmodernism"]
+},
+
+{ num:"028", c:"20th", region:"Russia",
+  name:"Mikhail Bulgakov", dates:"1891–1940 · Russia / Ukraine",
+  nobel: false,
+  works:[
+    {title:"The Master and Margarita", year:"1967"},
+    {title:"The White Guard", year:"1925"},
+    {title:"Heart of a Dog", year:"1925"},
+    {title:"The Fatal Eggs", year:"1924"},
+  ],
+  context:"Writing under Stalinist censorship, Bulgakov completed his masterpiece in secret over 12 years, knowing it could never be published in his lifetime. <strong>The Master and Margarita</strong> — the Devil visits Soviet Moscow — is a dazzling blend of satire, fantasy, and spiritual yearning. It was finally published 27 years after his death.",
+  tags:["Satire","Soviet Russia","Fantasy","Devil","Censorship"]
+},
+
+{ num:"029", c:"20th", region:"Europe",
+  name:"George Orwell", dates:"1903–1950 · England",
+  nobel: false,
+  works:[
+    {title:"Nineteen Eighty-Four", year:"1949"},
+    {title:"Animal Farm", year:"1945"},
+    {title:"Homage to Catalonia", year:"1938"},
+    {title:"Keep the Aspidistra Flying", year:"1936"},
+    {title:"Down and Out in Paris and London", year:"1933"},
+  ],
+  context:"A former imperial policeman in Burma who fought in the Spanish Civil War and lived in poverty among the working class, Orwell brought documentary precision to political fiction. <strong>Nineteen Eighty-Four</strong> remains the definitive dystopian novel and gave the language: Big Brother, doublethink, thoughtcrime, Newspeak.",
+  tags:["Dystopia","Political","England","Totalitarianism","Satire"]
+},
+
+{ num:"030", c:"20th", region:"Russia",
+  name:"Vladimir Nabokov", dates:"1899–1977 · Russia / USA",
+  nobel: false,
+  works:[
+    {title:"Lolita", year:"1955"},
+    {title:"Pale Fire", year:"1962"},
+    {title:"Ada, or Ardor", year:"1969"},
+    {title:"Invitation to a Beheading", year:"1936"},
+    {title:"The Gift", year:"1938"},
+  ],
+  context:"A Russian aristocrat who fled revolution, Nabokov mastered English as a third language and wrote some of the most dazzling prose in American literature. <strong>Lolita</strong> — narrated by a monster with beautiful sentences — is a masterwork of unreliable narration. He was also a serious entomologist and discovered several species of butterfly.",
+  tags:["Prose Style","Russia","USA","Unreliable Narrator","Language"]
+},
+
+{ num:"031", c:"20th", region:"Europe",
+  name:"Thomas Mann", dates:"1875–1955 · Germany",
+  nobel: true,
+  works:[
+    {title:"The Magic Mountain", year:"1924"},
+    {title:"Buddenbrooks", year:"1901"},
+    {title:"Death in Venice", year:"1912"},
+    {title:"Doctor Faustus", year:"1947"},
+    {title:"Joseph and His Brothers", year:"1933"},
+  ],
+  context:"The central figure of German literary modernism, Mann's vast, philosophical novels traced the decline of European bourgeois civilisation. As the Nazis rose he lived in American exile, broadcasting anti-Nazi radio messages to occupied Germany. Nobel Prize 1929.",
+  tags:["Germany","Modernism","Bourgeoisie","Philosophy","Exile"]
+},
+
+{ num:"032", c:"20th", region:"North America",
+  name:"Toni Morrison", dates:"1931–2019 · USA",
+  nobel: true,
+  works:[
+    {title:"Beloved", year:"1987"},
+    {title:"Song of Solomon", year:"1977"},
+    {title:"Sula", year:"1973"},
+    {title:"The Bluest Eye", year:"1970"},
+    {title:"Jazz", year:"1992"},
+  ],
+  context:"The first Black American woman to win the Nobel Prize in Literature (1993), Morrison wrote about the trauma and beauty of Black American life with mythic force and lyric intensity. <strong>Beloved</strong> — based on the true story of a runaway slave who killed her own daughter rather than return her to slavery — is among the greatest American novels.",
+  tags:["African American","Slavery","USA","Mythic","Nobel Prize"]
+},
+
+{ num:"033", c:"20th", region:"Latin America",
+  name:"Mario Vargas Llosa", dates:"1936–present · Peru",
+  nobel: true,
+  works:[
+    {title:"The Green House", year:"1966"},
+    {title:"Conversation in the Cathedral", year:"1969"},
+    {title:"The Feast of the Goat", year:"2000"},
+    {title:"Aunt Julia and the Scriptwriter", year:"1977"},
+    {title:"The War of the End of the World", year:"1981"},
+  ],
+  context:"A Peruvian novelist and Nobel laureate (2010) who pioneered the structural complexity of the Latin American Boom generation. His novels range from the Amazon jungle to the Dominican Republic under Trujillo's dictatorship. He later ran for the Peruvian presidency, narrowly losing.",
+  tags:["Latin America","Peru","Politics","Dictatorship","Structure"]
+},
+
+{ num:"034", c:"20th", region:"Africa",
+  name:"Chinua Achebe", dates:"1930–2013 · Nigeria",
+  nobel: false,
+  works:[
+    {title:"Things Fall Apart", year:"1958"},
+    {title:"Arrow of God", year:"1964"},
+    {title:"A Man of the People", year:"1966"},
+    {title:"Anthills of the Savannah", year:"1987"},
+    {title:"No Longer at Ease", year:"1960"},
+  ],
+  context:"<strong>Things Fall Apart</strong> — narrating Igbo society's collision with British colonialism — is the most widely read African novel ever written, translated into 57 languages and selling over 20 million copies. Achebe wrote to reclaim African dignity from European literary condescension, specifically Conrad's <em>Heart of Darkness</em>.",
+  tags:["Nigeria","Colonialism","Africa","Igbo","Post-Colonial"]
+},
+
+{ num:"035", c:"20th", region:"Europe",
+  name:"Italo Calvino", dates:"1923–1985 · Italy",
+  nobel: false,
+  works:[
+    {title:"If on a winter's night a traveller", year:"1979"},
+    {title:"Invisible Cities", year:"1972"},
+    {title:"The Baron in the Trees", year:"1957"},
+    {title:"Cosmicomics", year:"1965"},
+    {title:"The Path to the Spiders' Nests", year:"1947"},
+  ],
+  context:"A playful postmodernist and fabulist, Calvino wrote about reading, cities, and the nature of narrative with the lightness of a fairytale. <strong>Invisible Cities</strong> — Marco Polo describing imaginary cities to Kublai Khan — is one of the most beloved Italian novels and a masterpiece of literary architecture.",
+  tags:["Postmodernism","Italy","Fabulism","Cities","Metafiction"]
+},
+
+{ num:"036", c:"20th", region:"Europe",
+  name:"Umberto Eco", dates:"1932–2016 · Italy",
+  nobel: false,
+  works:[
+    {title:"The Name of the Rose", year:"1980"},
+    {title:"Foucault's Pendulum", year:"1988"},
+    {title:"The Island of the Day Before", year:"1994"},
+    {title:"Baudolino", year:"2000"},
+    {title:"The Prague Cemetery", year:"2010"},
+  ],
+  context:"A medieval semiotics professor who turned to fiction at age 48, Eco wrote lavishly erudite historical and philosophical thrillers. <strong>The Name of the Rose</strong> — a murder mystery in a 14th-century monastery — has sold over 50 million copies and remains the most commercially successful 'difficult' novel ever written.",
+  tags:["Medieval","Italy","Semiotics","Thriller","Erudition"]
+},
+
+{ num:"037", c:"20th", region:"Europe",
+  name:"Milan Kundera", dates:"1929–2023 · Czech Republic / France",
+  nobel: false,
+  works:[
+    {title:"The Unbearable Lightness of Being", year:"1984"},
+    {title:"The Book of Laughter and Forgetting", year:"1979"},
+    {title:"The Joke", year:"1967"},
+    {title:"Immortality", year:"1990"},
+    {title:"Life is Elsewhere", year:"1973"},
+  ],
+  context:"Exiled after the 1968 Soviet invasion of Czechoslovakia, Kundera wove philosophy, erotic comedy, and political tragedy into a distinctive form of the novel-as-meditation. His work made him the great European novelist of exile, memory, and the politics of forgetting.",
+  tags:["Czech Republic","Exile","Philosophy","Eros","Communism"]
+},
+
+{ num:"038", c:"20th", region:"Asia",
+  name:"Yasunari Kawabata", dates:"1899–1972 · Japan",
+  nobel: true,
+  works:[
+    {title:"Snow Country", year:"1956"},
+    {title:"The Sound of the Mountain", year:"1954"},
+    {title:"The Master of Go", year:"1954"},
+    {title:"Beauty and Sadness", year:"1961"},
+    {title:"The Old Capital", year:"1962"},
+  ],
+  context:"The first Japanese writer to win the Nobel Prize (1968), Kawabata developed a haiku-like prose of fleeting beauty and melancholy — the Japanese concept of <em>mono no aware</em>, the bittersweet awareness of impermanence. He described his style as 'a stream of haiku' and worked in a mode of exquisite, untranslatable subtlety.",
+  tags:["Japan","Mono no aware","Beauty","Impermanence","Haiku"]
+},
+
+{ num:"039", c:"20th", region:"Asia",
+  name:"Yukio Mishima", dates:"1925–1970 · Japan",
+  nobel: false,
+  works:[
+    {title:"The Temple of the Golden Pavilion", year:"1956"},
+    {title:"Confessions of a Mask", year:"1949"},
+    {title:"The Sea of Fertility (tetralogy)", year:"1969"},
+    {title:"Thirst for Love", year:"1950"},
+    {title:"After the Banquet", year:"1960"},
+  ],
+  context:"Brilliant, flamboyant, and ultimately tragic, Mishima wrote about beauty, death, and Japan's lost imperial identity with baroque intensity. He staged a coup attempt and performed ritual suicide at age 45, surrounded by his private militia — one of literature's most dramatic and disturbing ends.",
+  tags:["Japan","Beauty","Death","Nationalism","Baroque"]
+},
+
+{ num:"040", c:"20th", region:"North America",
+  name:"Ralph Ellison", dates:"1914–1994 · USA",
+  nobel: false,
+  works:[
+    {title:"Invisible Man", year:"1952"},
+    {title:"Juneteenth", year:"1999"},
+    {title:"Flying Home and Other Stories", year:"1996"},
+  ],
+  context:"<strong>Invisible Man</strong> — narrated by a nameless Black man rendered invisible by a white society that refuses to see him — won the National Book Award in 1953 and remains the defining novel of African American identity in the 20th century. Ellison spent 40 years working on an unfinished second novel.",
+  tags:["African American","USA","Identity","Race","Modernism"]
+},
+
+{ num:"041", c:"20th", region:"North America",
+  name:"Flannery O'Connor", dates:"1925–1964 · USA",
+  nobel: false,
+  works:[
+    {title:"Wise Blood", year:"1952"},
+    {title:"A Good Man Is Hard to Find", year:"1955"},
+    {title:"The Violent Bear It Away", year:"1960"},
+    {title:"Everything That Rises Must Converge", year:"1965"},
+  ],
+  context:"A devout Catholic from Georgia who died of lupus at 39, O'Connor wrote grotesque, darkly comic stories about grace, sin, and violent redemption in the American South. Her ferocious spiritual vision has no parallel in American fiction. She kept peacocks on her farm and wrote every morning for two hours, whatever her health.",
+  tags:["American South","Grotesque","Catholic","Grace","Short Stories"]
+},
+
+{ num:"042", c:"20th", region:"Middle East",
+  name:"Naguib Mahfouz", dates:"1911–2006 · Egypt",
+  nobel: true,
+  works:[
+    {title:"Palace Walk", year:"1956"},
+    {title:"Palace of Desire", year:"1957"},
+    {title:"Sugar Street", year:"1957"},
+    {title:"Midaq Alley", year:"1947"},
+    {title:"Children of the Alley", year:"1959"},
+  ],
+  context:"The first Arabic writer to win the Nobel Prize (1988), Mahfouz spent his career mapping Cairo's back alleys and its people's inner lives. The Cairo Trilogy — three generations of an Egyptian family between WWI and 1952 — is the Arab world's answer to <em>War and Peace</em>. He was nearly assassinated for perceived blasphemy in 1994.",
+  tags:["Egypt","Cairo","Arabic Literature","Family Saga","History"]
+},
+
+{ num:"043", c:"20th", region:"Europe",
+  name:"D.H. Lawrence", dates:"1885–1930 · England",
+  nobel: false,
+  works:[
+    {title:"Sons and Lovers", year:"1913"},
+    {title:"Women in Love", year:"1920"},
+    {title:"Lady Chatterley's Lover", year:"1928"},
+    {title:"The Rainbow", year:"1915"},
+    {title:"The Plumed Serpent", year:"1926"},
+  ],
+  context:"A coal miner's son who fought the repressive morality of the English class system, Lawrence wrote with raw sensual intensity about sex, nature, and industrialisation's damage to the human spirit. <strong>Lady Chatterley's Lover</strong> was banned in Britain until 1960 — its landmark obscenity trial transformed British publishing forever.",
+  tags:["Sensuality","England","Class","Nature","Censorship"]
+},
+
+{ num:"044", c:"20th", region:"Africa",
+  name:"Ngũgĩ wa Thiong'o", dates:"1938–present · Kenya",
+  nobel: false,
+  works:[
+    {title:"Weep Not, Child", year:"1964"},
+    {title:"A Grain of Wheat", year:"1967"},
+    {title:"Petals of Blood", year:"1977"},
+    {title:"Devil on the Cross", year:"1982"},
+    {title:"Wizard of the Crow", year:"2006"},
+  ],
+  context:"East Africa's greatest novelist, Ngũgĩ gave up English to write in his native Gikuyu language as a political act against cultural colonisation. He was imprisoned without charge in 1977 — and wrote his next novel, Devil on the Cross, on toilet paper in prison. He remains the favourite for the Nobel Prize.",
+  tags:["Kenya","Colonialism","Language","Decolonisation","Political"]
+},
+
+{ num:"045", c:"20th", region:"Europe",
+  name:"Günter Grass", dates:"1927–2015 · Germany / Poland",
+  nobel: true,
+  works:[
+    {title:"The Tin Drum", year:"1959"},
+    {title:"Cat and Mouse", year:"1961"},
+    {title:"Dog Years", year:"1963"},
+    {title:"The Flounder", year:"1977"},
+    {title:"My Century", year:"1999"},
+  ],
+  context:"A German writer who confronted Nazi guilt head-on, Grass set <strong>The Tin Drum</strong> — told by Oskar, a boy who decides to stop growing — against the rise of Nazism in Danzig. His grotesque, carnivalesque style was unlike anything in German literature. He confessed to SS membership, a revelation that shook his moral authority. Nobel Prize 1999.",
+  tags:["Germany","Nazi Germany","Grotesque","Memory","Guilt"]
+},
+
+{ num:"046", c:"20th", region:"Europe",
+  name:"Albert Cossery", dates:"1913–2008 · Egypt / France",
+  name:"Jean Genet", dates:"1910–1986 · France",
+  nobel: false,
+  works:[
+    {title:"Our Lady of the Flowers", year:"1943"},
+    {title:"The Maids", year:"1947"},
+    {title:"The Thief's Journal", year:"1949"},
+    {title:"The Balcony", year:"1956"},
+  ],
+  context:"A convicted thief and male prostitute who wrote his first novel in a prison cell on brown paper bags, Genet transformed transgression into art of shocking beauty. Sartre wrote a 600-page philosophical study of him. His work challenged every moral and aesthetic convention of 20th-century French literature.",
+  tags:["France","Transgression","Crime","Queer","Existentialism"]
+},
+
+{ num:"047", c:"20th", region:"North America",
+  name:"Saul Bellow", dates:"1915–2005 · Canada / USA",
+  nobel: true,
+  works:[
+    {title:"Herzog", year:"1964"},
+    {title:"Humboldt's Gift", year:"1975"},
+    {title:"Henderson the Rain King", year:"1959"},
+    {title:"The Adventures of Augie March", year:"1953"},
+    {title:"Seize the Day", year:"1956"},
+  ],
+  context:"A Jewish-Canadian writer raised in Chicago, Bellow created a new kind of American novel — intellectual, self-mocking, wildly energetic. His voice — a kind of anxious brilliance — defined American literary life for three decades. Nobel Prize 1976.",
+  tags:["USA","Jewish American","Chicago","Intellectual","Nobel Prize"]
+},
+
+{ num:"048", c:"20th", region:"Latin America",
+  name:"Julio Cortázar", dates:"1914–1984 · Argentina",
+  nobel: false,
+  works:[
+    {title:"Hopscotch", year:"1963"},
+    {title:"Blow-Up and Other Stories", year:"1967"},
+    {title:"62: A Model Kit", year:"1968"},
+    {title:"A Manual for Manuel", year:"1973"},
+    {title:"Cronopios and Famas", year:"1962"},
+  ],
+  context:"Cortázar's <strong>Hopscotch</strong> can be read in multiple orders chosen by the reader — a radical formal experiment. His short stories — including Blow-Up, which Antonioni turned into his film — blended the fantastic and everyday in a uniquely Argentine surrealism. He was a jazz enthusiast and wrote what he called 'anti-stories.'",
+  tags:["Argentina","Experimental","Surrealism","Short Stories","Latin America"]
+},
+
+{ num:"049", c:"20th", region:"Europe",
+  name:"Joseph Conrad", dates:"1857–1924 · Poland / England",
+  nobel: false,
+  works:[
+    {title:"Heart of Darkness", year:"1899"},
+    {title:"Lord Jim", year:"1900"},
+    {title:"The Secret Agent", year:"1907"},
+    {title:"Nostromo", year:"1904"},
+    {title:"The Secret Sharer", year:"1910"},
+  ],
+  context:"Born Polish, Conrad learned English as his third language and became one of its greatest prose stylists. <strong>Heart of Darkness</strong> — a journey up the Congo River into colonial horror — remains the most debated text about imperialism and its moral costs. He spent 20 years at sea before turning to writing.",
+  tags:["Colonialism","Sea","England","Poland","Imperialism"]
+},
+
+{ num:"050", c:"20th", region:"Asia",
+  name:"Lu Xun", dates:"1881–1936 · China",
+  nobel: false,
+  works:[
+    {title:"A Madman's Diary", year:"1918"},
+    {title:"The True Story of Ah Q", year:"1921"},
+    {title:"Call to Arms", year:"1922"},
+    {title:"Wandering", year:"1926"},
+  ],
+  context:"The father of modern Chinese fiction, Lu Xun abandoned medicine to diagnose China's soul instead. Writing during the fall of the Qing dynasty and the chaos of the Republic, his savage satirical stories indicted a nation's cultural paralysis. Mao called him 'the chief commander of China's cultural revolution.'",
+  tags:["China","Satire","Modernism","Revolution","Reform"]
+},
+
+{ num:"051", c:"20th", region:"Europe",
+  name:"William Golding", dates:"1911–1993 · England",
+  nobel: true,
+  works:[
+    {title:"Lord of the Flies", year:"1954"},
+    {title:"Rites of Passage", year:"1980"},
+    {title:"Pincher Martin", year:"1956"},
+    {title:"The Inheritors", year:"1955"},
+    {title:"The Spire", year:"1964"},
+  ],
+  context:"A WWII naval officer who witnessed combat and later learned of Hiroshima, Golding wrote <strong>Lord of the Flies</strong> as a dark retort to the optimistic tradition of desert-island adventure stories. It became one of the most studied novels in the English-speaking world. Nobel Prize 1983.",
+  tags:["England","Human Nature","Allegory","WWII","Darkness"]
+},
+
+{ num:"052", c:"20th", region:"North America",
+  name:"John Steinbeck", dates:"1902–1968 · USA",
+  nobel: true,
+  works:[
+    {title:"The Grapes of Wrath", year:"1939"},
+    {title:"East of Eden", year:"1952"},
+    {title:"Of Mice and Men", year:"1937"},
+    {title:"Cannery Row", year:"1945"},
+    {title:"The Pearl", year:"1947"},
+  ],
+  context:"Writing during the Great Depression, Steinbeck documented the Dust Bowl's displaced migrant workers with documentary precision and compassionate humanity. <strong>The Grapes of Wrath</strong> won the Pulitzer Prize and is credited with changing US government policy toward migrant farm workers. Nobel Prize 1962.",
+  tags:["USA","Depression Era","Working Class","California","Social Critique"]
+},
+
+{ num:"053", c:"20th", region:"Africa",
+  name:"Wole Soyinka", dates:"1934–present · Nigeria",
+  nobel: true,
+  works:[
+    {title:"The Interpreters", year:"1965"},
+    {title:"Season of Anomy", year:"1973"},
+    {title:"Aké: The Years of Childhood", year:"1981"},
+    {title:"The Man Died", year:"1972"},
+  ],
+  context:"Africa's first Nobel laureate (1986), Soyinka was imprisoned for attempting to negotiate peace during the Biafran civil war. His fiction and plays draw on Yoruba mythology and cosmology to examine Nigerian post-independence disillusionment. He wrote The Man Died — his prison memoirs — in secret during solitary confinement.",
+  tags:["Nigeria","Yoruba","Post-Colonial","Drama","Political"]
+},
+
+{ num:"054", c:"20th", region:"Europe",
+  name:"Simone de Beauvoir", dates:"1908–1986 · France",
+  nobel: false,
+  works:[
+    {title:"The Mandarins", year:"1954"},
+    {title:"She Came to Stay", year:"1943"},
+    {title:"The Woman Destroyed", year:"1967"},
+    {title:"All Men Are Mortal", year:"1946"},
+  ],
+  context:"Existentialist philosopher and lifelong partner of Sartre, de Beauvoir won the Prix Goncourt for The Mandarins in 1954 — a roman à clef about the Parisian intellectual world she inhabited. She remained central to feminist literature and was the first writer to theorise gender as a social construction.",
+  tags:["France","Feminism","Existentialism","Intellectual","Philosophy"]
+},
+
+{ num:"055", c:"20th", region:"Europe",
+  name:"Heinrich Böll", dates:"1917–1985 · Germany",
+  nobel: true,
+  works:[
+    {title:"The Lost Honour of Katharina Blum", year:"1974"},
+    {title:"Billiards at Half-Past Nine", year:"1959"},
+    {title:"Group Portrait with Lady", year:"1971"},
+    {title:"The Clown", year:"1963"},
+  ],
+  context:"A WWII veteran who opposed Germany's re-armament and the Catholic Church's complacency, Böll was the moral conscience of post-war German literature. A vocal critic of the tabloid media and state surveillance, his novella <strong>The Lost Honour of Katharina Blum</strong> directly inspired by the Bild-Zeitung's treatment of the Baader-Meinhof group. Nobel Prize 1972.",
+  tags:["Germany","WWII","Post-War","Catholicism","Media"]
+},
+
+{ num:"056", c:"20th", region:"North America",
+  name:"Cormac McCarthy", dates:"1933–2023 · USA",
+  nobel: false,
+  works:[
+    {title:"Blood Meridian", year:"1985"},
+    {title:"The Road", year:"2006"},
+    {title:"No Country for Old Men", year:"2005"},
+    {title:"All the Pretty Horses", year:"1992"},
+    {title:"Suttree", year:"1979"},
+  ],
+  context:"McCarthy wrote about violence, nature, and human evil with Biblical grandeur and minimal punctuation. <strong>Blood Meridian</strong> — a scalp-hunting expedition in 1840s Mexico — is among the most brutal and beautiful books in American literature. Harold Bloom called it the greatest American novel of the second half of the 20th century.",
+  tags:["USA","Violence","The West","Nihilism","Biblical"]
+},
+
+{ num:"057", c:"20th", region:"North America",
+  name:"Philip Roth", dates:"1933–2018 · USA",
+  nobel: false,
+  works:[
+    {title:"American Pastoral", year:"1997"},
+    {title:"The Human Stain", year:"2000"},
+    {title:"Portnoy's Complaint", year:"1969"},
+    {title:"The Ghost Writer", year:"1979"},
+    {title:"Sabbath's Theater", year:"1995"},
+  ],
+  context:"Over five decades Roth created an entire world — the Jewish-American Newark of his imagination — and interrogated American identity with savage comic intelligence. <strong>American Pastoral</strong> — about the unravelling of the American Dream in the 1960s — won the Pulitzer Prize. He was nominated for the Nobel Prize virtually every year of his career.",
+  tags:["USA","Jewish American","Newark","Identity","American Dream"]
+},
+
+{ num:"058", c:"20th", region:"Europe",
+  name:"Marguerite Yourcenar", dates:"1903–1987 · Belgium / France",
+  nobel: false,
+  works:[
+    {title:"Memoirs of Hadrian", year:"1951"},
+    {title:"The Abyss", year:"1968"},
+    {title:"A Coin in Nine Hands", year:"1934"},
+    {title:"Oriental Tales", year:"1938"},
+  ],
+  context:"The first woman elected to the Académie française, Yourcenar wrote historical fiction of breathtaking erudition. <strong>Memoirs of Hadrian</strong> — written as a letter from the dying Roman emperor to his young successor Marcus Aurelius — took 20 years to write and is among the finest historical novels ever conceived.",
+  tags:["France","Historical Fiction","Rome","Classical","Erudition"]
+},
+
+{ num:"059", c:"20th", region:"Middle East",
+  name:"Sadegh Hedayat", dates:"1903–1951 · Iran",
+  nobel: false,
+  works:[
+    {title:"The Blind Owl", year:"1937"},
+    {title:"Three Drops of Blood", year:"1932"},
+    {title:"Hajji Agha", year:"1945"},
+    {title:"The Stray Dog", year:"1942"},
+  ],
+  context:"Iran's greatest modernist writer, Hedayat wrote <strong>The Blind Owl</strong> — a hallucinatory novella of death, drugs, and dissolution — while living in Bombay, and had it privately printed in a run of 50 copies. Long suppressed in Iran, it remains a masterpiece of surrealist literature. He died by suicide in his Paris apartment.",
+  tags:["Iran","Surrealism","Death","Modernism","Persian"]
+},
+
+{ num:"060", c:"20th", region:"Latin America",
+  name:"Juan Rulfo", dates:"1917–1986 · Mexico",
+  nobel: false,
+  works:[
+    {title:"Pedro Páramo", year:"1955"},
+    {title:"The Burning Plain", year:"1953"},
+  ],
+  context:"Rulfo wrote only two books — a story collection and a novel — but their influence is incalculable. <strong>Pedro Páramo</strong>, a lyrical ghost story of a dying Mexican town, changed Latin American literature permanently. García Márquez memorised it and said it gave him the key to <em>One Hundred Years of Solitude</em>. Rulfo then never wrote fiction again.",
+  tags:["Mexico","Magical Realism","Death","Rural","Latin America"]
+},
+
+{ num:"061", c:"20th", region:"Europe",
+  name:"Ingeborg Bachmann", dates:"1926–1973 · Austria",
+  nobel: false,
+  works:[
+    {title:"Malina", year:"1971"},
+    {title:"The Thirtieth Year", year:"1961"},
+    {title:"Three Paths to the Lake", year:"1972"},
+    {title:"Simultan", year:"1972"},
+  ],
+  context:"Austria's greatest postwar woman writer, Bachmann wrote about female experience under patriarchy with raw, experimental force. Her novel <strong>Malina</strong> was the first in an unfinished cycle called 'Ways of Death.' She died in a mysterious apartment fire, possibly from sedative dependency, at 47.",
+  tags:["Austria","Feminism","Experimental","Post-War","Women"]
+},
+
+{ num:"062", c:"20th", region:"Asia",
+  name:"Rabindranath Tagore", dates:"1861–1941 · India",
+  nobel: true,
+  works:[
+    {title:"The Home and the World", year:"1916"},
+    {title:"Gora", year:"1910"},
+    {title:"Gitanjali (poetry)", year:"1910"},
+    {title:"The Wreck", year:"1906"},
+    {title:"Chokher Bali", year:"1903"},
+  ],
+  context:"The first non-European Nobel laureate (1913), Tagore wrote novels, stories, poetry, songs, and plays in Bengali that shaped the Indian independence movement. He returned his knighthood in protest at the Amritsar Massacre and founded Visva-Bharati University based on Upanishadic principles. He wrote the national anthems of both India and Bangladesh.",
+  tags:["India","Bengal","Nobel Prize","Nationalism","Mysticism"]
+},
+
+{ num:"063", c:"20th", region:"Russia",
+  name:"Boris Pasternak", dates:"1890–1960 · Russia",
+  nobel: true,
+  works:[
+    {title:"Doctor Zhivago", year:"1957"},
+    {title:"Safe Conduct", year:"1931"},
+    {title:"My Sister, Life (poetry)", year:"1922"},
+  ],
+  context:"Pasternak's <strong>Doctor Zhivago</strong> was smuggled out of the Soviet Union and published in Italy, triggering a Nobel Prize (1958) that Soviet authorities forced him to refuse. The CIA covertly funded the printing of thousands of Russian-language copies and distributed them at the Brussels World's Fair as Cold War propaganda.",
+  tags:["Russia","Soviet Union","Revolution","Cold War","Love"]
+},
+
+{ num:"064", c:"20th", region:"Europe",
+  name:"Danilo Kiš", dates:"1935–1989 · Yugoslavia / Serbia",
+  nobel: false,
+  works:[
+    {title:"A Tomb for Boris Davidovich", year:"1976"},
+    {title:"Hourglass", year:"1972"},
+    {title:"Garden, Ashes", year:"1965"},
+    {title:"Encyclopedia of the Dead", year:"1983"},
+  ],
+  context:"The child of a Jewish Hungarian father who perished in the Holocaust, Kiš wrote compressed, elegant fictions about totalitarianism and memory. Though little known outside Europe, he is considered among the finest European prose writers of his century — Brodsky called him the best writer in Europe.",
+  tags:["Yugoslavia","Holocaust","Totalitarianism","Memory","Elegance"]
+},
+
+{ num:"065", c:"20th", region:"Europe",
+  name:"Clarice Lispector", dates:"1920–1977 · Ukraine / Brazil",
+  nobel: false,
+  works:[
+    {title:"The Passion According to G.H.", year:"1964"},
+    {title:"Near to the Wild Heart", year:"1943"},
+    {title:"The Hour of the Star", year:"1977"},
+    {title:"Family Ties", year:"1960"},
+    {title:"Agua Viva", year:"1973"},
+  ],
+  context:"Born in Ukraine, raised in Brazil, Lispector wrote a kind of interior fiction unlike anything in any language — dissolving narrative into pure philosophical ecstasy. <strong>The Passion According to G.H.</strong>, in which a woman eats a cockroach and undergoes a mystical crisis, is genuinely unlike any other novel. She has been called 'the Jewish Virginia Woolf of the Tropics.'",
+  tags:["Brazil","Mysticism","Consciousness","Philosophy","Modernism"]
+},
+
+// ╔══════════════════════════════════╗
+// ║       21st CENTURY               ║
+// ╚══════════════════════════════════╝
+
+{ num:"066", c:"21st", region:"Europe",
+  name:"W.G. Sebald", dates:"1944–2001 · Germany / England",
+  nobel: false,
+  works:[
+    {title:"The Rings of Saturn", year:"1995"},
+    {title:"Austerlitz", year:"2001"},
+    {title:"The Emigrants", year:"1992"},
+    {title:"Vertigo", year:"1990"},
+  ],
+  context:"Sebald died in a car crash weeks after <strong>Austerlitz</strong> was published, cutting short a career that had reinvented literary form. His melancholy, discursive prose — blending photographs, history, and fiction — mourned the Holocaust's destroyed world with unmatched originality. Susan Sontag said he was 'the greatest German writer of his generation.'",
+  tags:["Germany","England","Holocaust","Memory","Photography"]
+},
+
+{ num:"067", c:"21st", region:"Latin America",
+  name:"Roberto Bolaño", dates:"1953–2003 · Chile / Spain",
+  nobel: false,
+  works:[
+    {title:"2666", year:"2004"},
+    {title:"The Savage Detectives", year:"1998"},
+    {title:"By Night in Chile", year:"2000"},
+    {title:"Distant Star", year:"1996"},
+    {title:"The Skating Rink", year:"1993"},
+  ],
+  context:"Bolaño spent his life in poverty across Chile, Mexico, and Spain before his massive posthumous novel <strong>2666</strong> — structured around femicide in a Mexican border city — catapulted him to world fame. He is now considered the most important Latin American writer of his generation, though he died of liver failure at 50.",
+  tags:["Chile","Latin America","Crime","Femicide","Postmodernism"]
+},
+
+{ num:"068", c:"21st", region:"Asia",
+  name:"Haruki Murakami", dates:"1949–present · Japan",
+  nobel: false,
+  works:[
+    {title:"Norwegian Wood", year:"1987"},
+    {title:"Kafka on the Shore", year:"2002"},
+    {title:"The Wind-Up Bird Chronicle", year:"1994"},
+    {title:"1Q84", year:"2009"},
+    {title:"A Wild Sheep Chase", year:"1982"},
+  ],
+  context:"Japan's most internationally famous living novelist, Murakami blends Western pop culture, jazz, and Japanese folklore with surrealism in prose of distinctive dreamlike clarity. His books sell in millions across the globe. He ran a jazz bar before becoming a writer and translates Raymond Carver and F. Scott Fitzgerald into Japanese.",
+  tags:["Japan","Surrealism","Pop Culture","Loneliness","Jazz"]
+},
+
+{ num:"069", c:"21st", region:"Europe",
+  name:"Orhan Pamuk", dates:"1952–present · Turkey",
+  nobel: true,
+  works:[
+    {title:"My Name Is Red", year:"1998"},
+    {title:"Snow", year:"2002"},
+    {title:"The Museum of Innocence", year:"2008"},
+    {title:"The Black Book", year:"1990"},
+    {title:"Istanbul: Memories and the City", year:"2003"},
+  ],
+  context:"Istanbul's great novelist, Pamuk writes about the collision between Eastern and Western culture, Ottoman heritage, and modern Turkish identity. He was charged with 'insulting Turkishness' for publicly acknowledging the Armenian Genocide. He built an actual Museum of Innocence in Istanbul to accompany his novel of the same name. Nobel Prize 2006.",
+  tags:["Turkey","Istanbul","Ottoman","East vs West","Identity"]
+},
+
+{ num:"070", c:"21st", region:"Africa",
+  name:"J.M. Coetzee", dates:"1940–present · South Africa / Australia",
+  nobel: true,
+  works:[
+    {title:"Disgrace", year:"1999"},
+    {title:"Waiting for the Barbarians", year:"1980"},
+    {title:"Life & Times of Michael K", year:"1983"},
+    {title:"Elizabeth Costello", year:"2003"},
+    {title:"In the Heart of the Country", year:"1977"},
+  ],
+  context:"Writing in apartheid and post-apartheid South Africa, Coetzee produced spare, morally excruciating allegories about guilt, power, and the limits of civilisation. His cold precision and refusal of consolation make him one of the most demanding writers alive. He won the Booker Prize twice — the only writer to do so. Nobel Prize 2003.",
+  tags:["South Africa","Apartheid","Allegory","Guilt","Power"]
+},
+
+{ num:"071", c:"21st", region:"Europe",
+  name:"Elena Ferrante", dates:"fl. 1990s–present · Italy",
+  nobel: false,
+  works:[
+    {title:"My Brilliant Friend", year:"2011"},
+    {title:"The Story of a New Name", year:"2012"},
+    {title:"Those Who Leave and Those Who Stay", year:"2013"},
+    {title:"The Story of the Lost Child", year:"2014"},
+    {title:"The Days of Abandonment", year:"2002"},
+  ],
+  context:"Writing under a pseudonym whose real identity remains literature's greatest open secret, Ferrante's four-volume Neapolitan Novels became a global phenomenon — a fierce, intimate portrait of female friendship, ambition, and class in Naples across five decades. The question of who Elena Ferrante is has itself become a cultural obsession.",
+  tags:["Italy","Naples","Female Friendship","Class","Anonymity"]
+},
+
+{ num:"072", c:"21st", region:"Asia",
+  name:"Kazuo Ishiguro", dates:"1954–present · Japan / England",
+  nobel: true,
+  works:[
+    {title:"The Remains of the Day", year:"1989"},
+    {title:"Never Let Me Go", year:"2005"},
+    {title:"Klara and the Sun", year:"2021"},
+    {title:"An Artist of the Floating World", year:"1986"},
+    {title:"The Buried Giant", year:"2015"},
+  ],
+  context:"Born in Nagasaki and raised in England, Ishiguro writes about memory, denial, and the quiet English reserve hiding enormous loss. <strong>The Remains of the Day</strong> — a butler who sacrificed his entire inner life for a fascist-sympathising employer — is a masterpiece of repression. His fiction explores what we choose not to remember. Nobel Prize 2017.",
+  tags:["Japan","England","Memory","Repression","Dignity"]
+},
+
+{ num:"073", c:"21st", region:"Europe",
+  name:"Herta Müller", dates:"1953–present · Romania / Germany",
+  nobel: true,
+  works:[
+    {title:"The Land of Green Plums", year:"1994"},
+    {title:"The Hunger Angel", year:"2009"},
+    {title:"Travelling on One Leg", year:"1992"},
+    {title:"The Passport", year:"1986"},
+  ],
+  context:"A Romanian-German writer who fled Ceaușescu's Securitate after years of surveillance and harassment, Müller wrote dense, poetic novels about totalitarian fear. Her prose — full of collage-like imagery — makes political terror viscerally physical. Nobel Prize 2009.",
+  tags:["Romania","Germany","Totalitarianism","Communism","Exile"]
+},
+
+{ num:"074", c:"21st", region:"Africa",
+  name:"Chimamanda Ngozi Adichie", dates:"1977–present · Nigeria / USA",
+  nobel: false,
+  works:[
+    {title:"Purple Hibiscus", year:"2003"},
+    {title:"Half of a Yellow Sun", year:"2006"},
+    {title:"Americanah", year:"2013"},
+    {title:"We Should All Be Feminists", year:"2014"},
+    {title:"Dear Ijeawele", year:"2017"},
+  ],
+  context:"Adichie writes about the Biafran War, Nigerian-American identity, and feminism with luminous clarity. Her TED talk 'We Should All Be Feminists' — sampled by Beyoncé on Lemonade — has been heard by millions. <strong>Half of a Yellow Sun</strong> is the definitive novel of Nigeria's civil war.",
+  tags:["Nigeria","Feminism","Biafra","Identity","Africa"]
+},
+
+{ num:"075", c:"21st", region:"Asia",
+  name:"Mo Yan", dates:"1955–present · China",
+  nobel: true,
+  works:[
+    {title:"Red Sorghum", year:"1987"},
+    {title:"Big Breasts and Wide Hips", year:"1995"},
+    {title:"Life and Death Are Wearing Me Out", year:"2006"},
+    {title:"The Garlic Ballads", year:"1988"},
+    {title:"Sandalwood Death", year:"2001"},
+  ],
+  context:"Writing in post-Mao China, Mo Yan created a mythic landscape in rural Shandong province where history, folk legend, and brutal political reality coexist. His wild, carnivalesque prose style — reminiscent of Rabelais and García Márquez — challenged both literary and political orthodoxy. Nobel Prize 2012.",
+  tags:["China","Rural","Magical Realism","History","Carnivalesque"]
+},
+
+{ num:"076", c:"21st", region:"Europe",
+  name:"Michel Houellebecq", dates:"1956–present · France",
+  nobel: false,
+  works:[
+    {title:"The Elementary Particles", year:"1998"},
+    {title:"Submission", year:"2015"},
+    {title:"Platform", year:"2001"},
+    {title:"Serotonin", year:"2019"},
+    {title:"The Map and the Territory", year:"2010"},
+  ],
+  context:"The most controversial figure in contemporary French literature, Houellebecq writes bleak, sexually explicit novels about loneliness, decline, and the failure of liberal Western civilisation. <strong>Submission</strong> — imagining an Islamic France — was published the day of the Charlie Hebdo attacks, making it one of the most debated novels of the decade.",
+  tags:["France","Controversy","Nihilism","Sexuality","Modernity"]
+},
+
+{ num:"077", c:"21st", region:"North America",
+  name:"Margaret Atwood", dates:"1939–present · Canada",
+  nobel: false,
+  works:[
+    {title:"The Handmaid's Tale", year:"1985"},
+    {title:"Alias Grace", year:"1996"},
+    {title:"The Blind Assassin", year:"2000"},
+    {title:"Oryx and Crake", year:"2003"},
+    {title:"The Testaments", year:"2019"},
+  ],
+  context:"Canada's greatest living novelist, Atwood has been writing speculative and historical fiction for six decades with remarkable range and precision. <strong>The Handmaid's Tale</strong> — a theocratic American dictatorship — became a global cultural phenomenon when the TV series launched in 2017, its red cloaks becoming a symbol of feminist protest worldwide.",
+  tags:["Canada","Dystopia","Feminism","Speculative Fiction","History"]
+},
+
+{ num:"078", c:"21st", region:"North America",
+  name:"Don DeLillo", dates:"1936–present · USA",
+  nobel: false,
+  works:[
+    {title:"White Noise", year:"1985"},
+    {title:"Underworld", year:"1997"},
+    {title:"Libra", year:"1988"},
+    {title:"Falling Man", year:"2007"},
+    {title:"Cosmopolis", year:"2003"},
+  ],
+  context:"DeLillo is the novelist of American paranoia — assassination, nuclear fear, the media spectacle, consumer culture. <strong>Underworld</strong> opens with the 1951 Giants-Dodgers pennant race and spans 50 years of Cold War history in one of the great American novels. His prescient vision of a media-saturated, paranoid America has only grown more relevant.",
+  tags:["USA","Paranoia","Postmodernism","Media","Cold War"]
+},
+
+{ num:"079", c:"21st", region:"Europe",
+  name:"Salman Rushdie", dates:"1947–present · India / England",
+  nobel: false,
+  works:[
+    {title:"Midnight's Children", year:"1981"},
+    {title:"The Satanic Verses", year:"1988"},
+    {title:"Shame", year:"1983"},
+    {title:"The Moor's Last Sigh", year:"1995"},
+    {title:"Haroun and the Sea of Stories", year:"1990"},
+  ],
+  context:"<strong>Midnight's Children</strong> — narrating Indian independence through a boy born at midnight of 15 August 1947 — won the Booker Prize twice. <strong>The Satanic Verses</strong> led Ayatollah Khomeini to issue a fatwa calling for his death, forcing Rushdie into nearly a decade in hiding under a false name and constant police protection.",
+  tags:["India","England","Magical Realism","Islam","Fatwa"]
+},
+
+{ num:"080", c:"21st", region:"Asia",
+  name:"Arundhati Roy", dates:"1961–present · India",
+  nobel: false,
+  works:[
+    {title:"The God of Small Things", year:"1997"},
+    {title:"The Ministry of Utmost Happiness", year:"2017"},
+    {title:"The Algebra of Infinite Justice (essays)", year:"2001"},
+  ],
+  context:"<strong>The God of Small Things</strong> — a debut novel about forbidden love and caste in Kerala — won the Booker Prize and sold over six million copies. Roy then spent two decades as a political activist before returning to fiction. Her prose is among the most sensuous and inventive in English, with a poet's relationship to language.",
+  tags:["India","Kerala","Caste","Love","Post-Colonial"]
+},
+
+{ num:"081", c:"21st", region:"North America",
+  name:"Colson Whitehead", dates:"1969–present · USA",
+  nobel: false,
+  works:[
+    {title:"The Underground Railroad", year:"2016"},
+    {title:"The Nickel Boys", year:"2019"},
+    {title:"Zone One", year:"2011"},
+    {title:"The Intuitionist", year:"1999"},
+    {title:"Harlem Shuffle", year:"2021"},
+  ],
+  context:"Whitehead reimagined the Underground Railroad as a literal network of tunnels and trains in a stunning historical fantasy that won the Pulitzer Prize. He then won it again for <strong>The Nickel Boys</strong> — only the fourth writer in history to win back-to-back Pulitzers. His range — from zombie horror to historical fiction to crime — is extraordinary.",
+  tags:["USA","African American","Slavery","History","Pulitzer"]
+},
+
+{ num:"082", c:"21st", region:"North America",
+  name:"Jhumpa Lahiri", dates:"1967–present · USA / Italy",
+  nobel: false,
+  works:[
+    {title:"Interpreter of Maladies", year:"1999"},
+    {title:"The Namesake", year:"2003"},
+    {title:"Unaccustomed Earth", year:"2008"},
+    {title:"In Other Words", year:"2016"},
+    {title:"Whereabouts", year:"2021"},
+  ],
+  context:"Lahiri's debut story collection <strong>Interpreter of Maladies</strong> won the Pulitzer Prize and mapped Bengali immigrant experience in America with quiet, devastating precision. She later moved to Rome and began writing exclusively in Italian — not translating from English but composing directly in her adopted language as a radical creative act.",
+  tags:["USA","India","Immigration","Identity","Bengali"]
+},
+
+{ num:"083", c:"21st", region:"Europe",
+  name:"Annie Ernaux", dates:"1940–present · France",
+  nobel: true,
+  works:[
+    {title:"The Years", year:"2008"},
+    {title:"A Woman's Story", year:"1988"},
+    {title:"A Simple Passion", year:"1991"},
+    {title:"Happening", year:"2000"},
+    {title:"The Place", year:"1983"},
+  ],
+  context:"Writing spare, ferocious autofiction about class, memory, and female experience, Ernaux spent 50 years being underestimated before <strong>The Years</strong> — a collective memoir of France from WWII to the early 2000s written in the first-person plural — made her a global literary phenomenon. Nobel Prize 2022.",
+  tags:["France","Class","Autofiction","Memory","Feminism"]
+},
+
+{ num:"084", c:"21st", region:"Asia",
+  name:"Han Kang", dates:"1970–present · South Korea",
+  nobel: true,
+  works:[
+    {title:"The Vegetarian", year:"2007"},
+    {title:"Human Acts", year:"2014"},
+    {title:"The White Book", year:"2016"},
+    {title:"The Impossible Goodbye", year:"2021"},
+    {title:"We Do Not Part", year:"2023"},
+  ],
+  context:"Han Kang's <strong>The Vegetarian</strong> won the Man Booker International Prize in 2016 and introduced Korean literary fiction to a global readership. <strong>Human Acts</strong> addresses the 1980 Gwangju Uprising massacre — South Korea's Tiananmen — with unbearable tenderness. She writes about the body, violence, and grief with fragile, searing beauty. Nobel Prize 2024.",
+  tags:["South Korea","Body","Violence","History","Nobel Prize"]
+},
+
+{ num:"085", c:"21st", region:"Europe",
+  name:"Olga Tokarczuk", dates:"1962–present · Poland",
+  nobel: true,
+  works:[
+    {title:"Flights", year:"2007"},
+    {title:"The Books of Jacob", year:"2014"},
+    {title:"Drive Your Plow Over the Bones of the Dead", year:"2009"},
+    {title:"Primeval and Other Times", year:"1996"},
+    {title:"House of Day, House of Night", year:"1998"},
+  ],
+  context:"A psychologist turned writer, Tokarczuk writes constellation novels that fragment linear narrative into associative fragments circling ideas of migration, ecology, and identity. Her encyclopaedic <strong>The Books of Jacob</strong> — 900 pages on an 18th-century false Messiah — is one of the most ambitious novels of the 21st century. Nobel Prize 2018.",
+  tags:["Poland","Ecology","Migration","History","Experimental"]
+},
+
+{ num:"086", c:"21st", region:"Europe",
+  name:"Karl Ove Knausgård", dates:"1968–present · Norway",
+  nobel: false,
+  works:[
+    {title:"A Death in the Family (My Struggle I)", year:"2009"},
+    {title:"A Man in Love (My Struggle II)", year:"2009"},
+    {title:"Boyhood Island (My Struggle III)", year:"2009"},
+    {title:"The Morning Star", year:"2020"},
+    {title:"The Wolves of Eternity", year:"2022"},
+  ],
+  context:"Knausgård's six-volume autofiction — 3,600 pages of his own life shared in compulsive, punishing detail — caused a sensation across Scandinavia. His ex-wife's family threatened to sue before the final volumes were published. It collapsed the boundary between novel and memoir and revived literary fiction's mass readership across Europe.",
+  tags:["Norway","Autofiction","Family","Confession","Scandinavian"]
+},
+
+{ num:"087", c:"21st", region:"Africa",
+  name:"Teju Cole", dates:"1975–present · Nigeria / USA",
+  nobel: false,
+  works:[
+    {title:"Open City", year:"2011"},
+    {title:"Every Day Is for the Thief", year:"2007"},
+    {title:"Known and Strange Things (essays)", year:"2016"},
+    {title:"Tremor", year:"2023"},
+  ],
+  context:"<strong>Open City</strong> — a Nigerian psychiatrist wandering New York, Brussels, and Lagos in long, meditative walks — is among the finest debut novels of the 21st century. Cole works across fiction, photography criticism, and essay to produce a body of work of exceptional intelligence. W.G. Sebald is his closest literary ancestor.",
+  tags:["Nigeria","USA","Walking","Diaspora","Photography"]
+},
+
+{ num:"088", c:"21st", region:"North America",
+  name:"Ocean Vuong", dates:"1988–present · Vietnam / USA",
+  nobel: false,
+  works:[
+    {title:"On Earth We're Briefly Gorgeous", year:"2019"},
+    {title:"Night Sky with Exit Wounds (poetry)", year:"2016"},
+    {title:"Time Is a Mother (poetry)", year:"2022"},
+  ],
+  context:"A Vietnamese refugee who didn't speak English until age 5, Vuong wrote his debut novel as a letter from a son to his illiterate mother — a shattering account of queerness, addiction, race, and immigrant tenderness in a Connecticut tobacco town. His lyric intensity bridges poetry and prose in entirely its own way.",
+  tags:["Vietnam","USA","Immigration","Queer","Lyric Prose"]
+},
+
+{ num:"089", c:"21st", region:"Europe",
+  name:"László Krasznahorkai", dates:"1954–present · Hungary",
+  nobel: false,
+  works:[
+    {title:"Satantango", year:"1985"},
+    {title:"The Melancholy of Resistance", year:"1989"},
+    {title:"Baron Wenckheim's Homecoming", year:"2016"},
+    {title:"War & War", year:"1999"},
+    {title:"Seiobo There Below", year:"2008"},
+  ],
+  context:"The greatest living Hungarian novelist, Krasznahorkai writes in marathon sentences that span entire chapters — an unrelenting, apocalyptic prose style that Béla Tarr turned into seven-hour films. His novels circle the end of everything with an almost musical obsessiveness. Winner of the International Booker Prize lifetime award.",
+  tags:["Hungary","Apocalypse","Long Sentences","Experimental","Eastern Europe"]
+},
+
+{ num:"090", c:"21st", region:"Middle East",
+  name:"Elias Khoury", dates:"1948–present · Lebanon",
+  nobel: false,
+  works:[
+    {title:"Gate of the Sun", year:"1998"},
+    {title:"Little Mountain", year:"1977"},
+    {title:"Yalo", year:"2002"},
+    {title:"My Name Is Adam", year:"2016"},
+  ],
+  context:"Lebanon's greatest living novelist, Khoury has borne witness to civil war, Palestinian displacement, and the endless tragedies of the Middle East. <strong>Gate of the Sun</strong> — an oral history of the Palestinian Nakba told at the bedside of a dying fighter — is the supreme Arabic novel of its era and a monument of world literature.",
+  tags:["Lebanon","Palestine","Civil War","Oral History","Arabic"]
+},
+
+{ num:"091", c:"21st", region:"Middle East",
+  name:"Elif Shafak", dates:"1971–present · Turkey / England",
+  nobel: false,
+  works:[
+    {title:"The Forty Rules of Love", year:"2010"},
+    {title:"10 Minutes 38 Seconds in This Strange World", year:"2019"},
+    {title:"Three Daughters of Eve", year:"2016"},
+    {title:"The Bastard of Istanbul", year:"2006"},
+    {title:"The Island of Missing Trees", year:"2021"},
+  ],
+  context:"Turkey's most widely read female author, Shafak writes in both Turkish and English about Sufi mysticism, Istanbul's marginal communities, and feminist resistance. She was tried (and acquitted) for 'insulting Turkishness' in <em>The Bastard of Istanbul</em>. She writes in her kitchen in the middle of the night.",
+  tags:["Turkey","Sufism","Feminism","Istanbul","Bilingual"]
+},
+
+{ num:"092", c:"21st", region:"North America",
+  name:"Zadie Smith", dates:"1975–present · England / USA",
+  nobel: false,
+  works:[
+    {title:"White Teeth", year:"2000"},
+    {title:"NW", year:"2012"},
+    {title:"Swing Time", year:"2016"},
+    {title:"The Fraud", year:"2023"},
+    {title:"On Beauty", year:"2005"},
+  ],
+  context:"Smith published <strong>White Teeth</strong> at 24 to worldwide acclaim — a sprawling, comic, multicultural portrait of post-war London. Her work has grown increasingly experimental and formally adventurous while her essays have made her one of the sharpest cultural critics writing today. She is working in a tradition from Dickens through E.M. Forster.",
+  tags:["England","Multiculturalism","London","Comedy","Race"]
+},
+
+{ num:"093", c:"21st", region:"Europe",
+  name:"Édouard Louis", dates:"1992–present · France",
+  nobel: false,
+  works:[
+    {title:"The End of Eddy", year:"2014"},
+    {title:"History of Violence", year:"2016"},
+    {title:"Who Killed My Father", year:"2018"},
+    {title:"A Woman's Battles and Transformations", year:"2021"},
+    {title:"Change", year:"2021"},
+  ],
+  context:"Writing raw autofiction about growing up queer and working-class in rural northern France, Louis has become one of the most urgent voices of his generation — documenting class shame, homophobia, and state violence against the poor with visceral, first-hand precision. He moved to Paris at 18 and reinvented himself entirely.",
+  tags:["France","Class","Queer","Autofiction","Working Class"]
+},
+
+{ num:"094", c:"21st", region:"Africa",
+  name:"Maaza Mengiste", dates:"1971–present · Ethiopia / USA",
+  nobel: false,
+  works:[
+    {title:"The Shadow King", year:"2019"},
+    {title:"Beneath the Lion's Gaze", year:"2010"},
+  ],
+  context:"<strong>The Shadow King</strong> — about Ethiopian women soldiers resisting Mussolini's 1935 invasion — was shortlisted for the Booker Prize and praised as a visionary recovery of forgotten history. Mengiste writes about Africa's own complex relationship with war, colonialism, and female power, recovering histories that European historiography erased.",
+  tags:["Ethiopia","Africa","War","Women","History"]
+},
+
+{ num:"095", c:"21st", region:"Asia",
+  name:"Yan Lianke", dates:"1958–present · China",
+  nobel: false,
+  works:[
+    {title:"Serve the People!", year:"2005"},
+    {title:"Lenin's Kisses", year:"2004"},
+    {title:"The Day the Sun Died", year:"2015"},
+    {title:"Dream of Ding Village", year:"2006"},
+    {title:"The Four Books", year:"2010"},
+  ],
+  context:"China's most banned author within his own country, Yan Lianke writes surrealist, hallucinatory satires of Chinese political life and the catastrophes of Mao's era. Each new book risks suppression, yet he continues writing from his home in Beijing. He is sometimes compared to Kafka and Gogol for his ability to make political horror feel mythic.",
+  tags:["China","Censorship","Satire","Mao","Surrealism"]
+},
+
+{ num:"096", c:"21st", region:"Europe",
+  name:"Peter Stamm", dates:"1963–present · Switzerland",
+  nobel: false,
+  works:[
+    {title:"Agnes", year:"1998"},
+    {title:"Seven Years", year:"2009"},
+    {title:"All Days Are Night", year:"2014"},
+    {title:"The Sweet Indifference of the World", year:"2018"},
+  ],
+  context:"Switzerland's finest living prose writer, Stamm writes deceptively simple novels about disconnection, desire, and the uncanny — in a quietly devastating style that owes something to Camus and Walser. He is one of European literature's best-kept secrets, building a body of work of extraordinary calm intelligence.",
+  tags:["Switzerland","Minimalism","Desire","Alienation","Quiet"]
+},
+
+{ num:"097", c:"21st", region:"North America",
+  name:"Richard Powers", dates:"1957–present · USA",
+  nobel: false,
+  works:[
+    {title:"The Overstory", year:"2018"},
+    {title:"The Echo Wife", year:""},
+    {title:"Bewilderment", year:"2021"},
+    {title:"Galatea 2.2", year:"1995"},
+    {title:"The Time of Our Singing", year:"2003"},
+  ],
+  context:"Powers writes ambitious, scientifically literate novels about nature, technology, and the human capacity for destruction. <strong>The Overstory</strong> — nine interconnected stories about trees and the people who fight to save them — won the Pulitzer Prize and has been called the most important American environmental novel ever written.",
+  tags:["USA","Nature","Ecology","Technology","Pulitzer"]
+},
+
+{ num:"098", c:"21st", region:"Africa",
+  name:"NoViolet Bulawayo", dates:"1981–present · Zimbabwe / USA",
+  nobel: false,
+  works:[
+    {title:"We Need New Names", year:"2013"},
+    {title:"Glory", year:"2022"},
+  ],
+  context:"Bulawayo's debut <strong>We Need New Names</strong> — narrated by a girl fleeing Zimbabwe for America — was the first novel by an African woman to be shortlisted for the Man Booker Prize. <strong>Glory</strong> is a savage Orwellian allegory of post-Mugabe Zimbabwe told entirely through animals, reinventing Animal Farm for the 21st century.",
+  tags:["Zimbabwe","Africa","Immigration","Allegory","Diaspora"]
+},
+
+{ num:"099", c:"21st", region:"Europe",
+  name:"Magda Szabó", dates:"1917–2007 · Hungary",
+  nobel: false,
+  works:[
+    {title:"The Door", year:"1987"},
+    {title:"Abigail", year:"1970"},
+    {title:"Iza's Ballad", year:"1963"},
+    {title:"For Esther (poems)", year:"1948"},
+  ],
+  context:"Hungary's greatest woman writer, Szabó was suppressed under communism and only rediscovered internationally in her 80s. <strong>The Door</strong> — a novelist's shattering relationship with her fierce, mysterious housekeeper Emerence — is one of the most powerful explorations of class, loyalty, and guilt in European fiction. It has been compared to <em>Middlemarch</em>.",
+  tags:["Hungary","Communism","Female Friendship","Class","Eastern Europe"]
+},
+
+{ num:"100", c:"21st", region:"Asia",
+  name:"Hisham Matar", dates:"1970–present · Libya / England",
+  nobel: false,
+  works:[
+    {title:"In the Country of Men", year:"2006"},
+    {title:"Anatomy of a Disappearance", year:"2011"},
+    {title:"The Return: Fathers, Sons and the Land in Between", year:"2016"},
+  ],
+  context:"A Libyan writer raised in exile after his father was kidnapped by Gaddafi's regime, Matar writes fiction and memoir of extraordinary lyricism and moral clarity. <strong>The Return</strong> — his journey back to Libya after his father's disappearance in one of Gaddafi's prisons — won the Pulitzer Prize for Memoir and is among the most beautiful books of the century.",
+  tags:["Libya","Exile","Memory","Father","Arabic"]
+}
+
+];
+
+// ── Render ──
+const centuryMeta = {
+  "19th": {
+    era:"19th Century · 1800–1900",
+    title:"The Age of Realism",
+    desc:"The novel becomes the dominant art form. Dickens, Tolstoy, Flaubert, Zola — literature as social conscience."
+  },
+  "20th": {
+    era:"20th Century · 1900–2000",
+    title:"The Age of Modernism & Beyond",
+    desc:"Two world wars, decolonisation, existential crisis. Joyce, Kafka, Borges, Achebe — literature shatters and rebuilds."
+  },
+  "21st": {
+    era:"21st Century · 2000–Present",
+    title:"The Global Novel",
+    desc:"Literature without borders. Ferrante, Tokarczuk, Han Kang — new voices redefine what fiction can do."
+  }
+};
+
+let activeFilter = 'all';
+let searchTerm = '';
+
+function getVisible() {
+  return WRITERS.filter(w => {
+    const matchFilter =
+      activeFilter === 'all' ||
+      activeFilter === w.c ||
+      activeFilter === w.region ||
+      (activeFilter === 'nobel' && w.nobel);
+    const q = searchTerm.toLowerCase();
+    const matchSearch = !q ||
+      w.name.toLowerCase().includes(q) ||
+      w.dates.toLowerCase().includes(q) ||
+      w.context.toLowerCase().includes(q) ||
+      w.tags.some(t => t.toLowerCase().includes(q)) ||
+      w.works.some(b => b.title.toLowerCase().includes(q));
+    return matchFilter && matchSearch;
+  });
+}
+
+function render() {
+  const visible = getVisible();
+  const container = document.getElementById('mainContent');
+  container.innerHTML = '';
+
+  document.getElementById('countBadge').textContent = `${visible.length} / ${WRITERS.length}`;
+
+  if (visible.length === 0) {
+    const noRes = document.createElement('div');
+    noRes.className = 'writers-grid';
+    noRes.innerHTML = '<div class="no-results">No writers found — try a different search</div>';
+    container.appendChild(noRes);
+    return;
+  }
+
+  ['19th','20th','21st'].forEach(c => {
+    const cWriters = visible.filter(w => w.c === c);
+    if (!cWriters.length) return;
+    const meta = centuryMeta[c];
+
+    const block = document.createElement('div');
+    block.className = 'century-block';
+    block.innerHTML = `
+      <div class="century-banner">
+        <div class="century-num">${c === '19th' ? '19' : c === '20th' ? '20' : '21'}</div>
+        <div class="century-info">
+          <div class="century-era">${meta.era}</div>
+          <div class="century-title">${meta.title}</div>
+          <p class="century-desc">${meta.desc}</p>
+        </div>
+        <div class="century-tally">
+          <span class="century-tally-num">${cWriters.length}</span>
+          <span class="century-tally-label">writers</span>
+        </div>
+      </div>
+      <div class="writers-grid" id="grid-${c}"></div>
+    `;
+    container.appendChild(block);
+
+    const grid = block.querySelector(`#grid-${c}`);
+    cWriters.forEach((w, i) => {
+      const card = document.createElement('div');
+      card.className = 'wcard';
+      card.dataset.region = w.region;
+
+      const worksHtml = w.works.map(b =>
+        `<li><span class="work-year">${b.year}</span>${b.title}</li>`
+      ).join('');
+
+      const tagsHtml = w.tags.map(t => `<span class="tag">${t}</span>`).join('');
+      const nobelBadge = w.nobel ? '<span class="nobel-badge">★ Nobel Laureate</span>' : '';
+
+      card.innerHTML = `
+        <div class="card-header">
+          <span class="card-num">#${w.num}</span>
+          <span class="card-region">${w.region}</span>
+        </div>
+        <div class="card-name">${w.name}</div>
+        <div class="card-dates">${w.dates}</div>
+        <div class="card-works-label">Essential Works</div>
+        <ul class="card-works">${worksHtml}</ul>
+        <div class="card-sep"></div>
+        <div class="card-context">${w.context}</div>
+        <div class="card-tags" style="margin-top:16px">${nobelBadge}${tagsHtml}</div>
+      `;
+
+      // stagger entrance
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(12px)';
+      grid.appendChild(card);
+
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, i * 28);
+    });
+  });
+}
+
+// ── Events ──
+document.getElementById('filterGroup').addEventListener('click', e => {
+  const btn = e.target.closest('.fbtn');
+  if (!btn) return;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.filter;
+  render();
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchTerm = e.target.value.trim();
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
