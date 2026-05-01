@@ -797,7 +797,7 @@ for(let i = 1; i <= 5; i++){
   if(btn){
     btn.addEventListener('click', function(){
       if(!this.classList.contains('ready')) return;
-      if(i < 5){ showQ(i + 1); window.scrollTo({top:0,behavior:'smooth'}); }
+      if(i < 5){ showQ(i + 1); document.getElementById('progressWrap').scrollIntoView({behavior:'smooth', block:'start'}); }
       else { showResult(); }
     });
   }
@@ -812,7 +812,7 @@ document.getElementById('retakeBtn').addEventListener('click', function(){
   result.classList.remove('visible');
   result.style.display = 'none';
   showQ(1);
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('progressWrap').scrollIntoView({behavior:'smooth', block:'start'});
 });
 
 // ── INIT ──
