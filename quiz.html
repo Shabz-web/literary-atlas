@@ -562,7 +562,7 @@ const BOOKS = [
     why:"You're drawn to Africa and want something that opens your eyes to a world and a history you may not know well enough. <strong>Things Fall Apart</strong> is both compulsively readable and quietly devastating — Okonkwo's story of Igbo life before and during British colonisation will make you see the entire story of colonialism differently.",
     tags:["Nigeria","Colonialism","Africa","Essential","Historical"],
     bio:"Chinua Achebe wrote Things Fall Apart to reclaim African dignity from European literary condescension. The novel has been translated into 57 languages and sold over 20 million copies — the most widely read African novel ever written.",
-    scores:{dark:1,hopeful:1,curious:3,escapist:2,short:2,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:2,characters:3,ideas:3,story:2,easy:3,moderate:2,hard:1}
+    scores:{dark:1,hopeful:2,curious:3,escapist:2,short:2,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:2,characters:3,ideas:3,story:3,easy:3,moderate:2,hard:1}
   },
   {
     key:"Kafka on the Shore",
@@ -640,7 +640,7 @@ const BOOKS = [
     why:"You want to go somewhere completely new and meet people who feel utterly real — <strong>Midaq Alley</strong> takes you into a tiny alley in old Cairo and fills it with unforgettable characters. It's warm, readable, and a perfect introduction to the Arab world's greatest novelist.",
     tags:["Egypt","Cairo","Arabic Literature","Human","Vivid"],
     bio:"Naguib Mahfouz was the first Arabic writer to win the Nobel Prize in Literature in 1988. He spent his entire career mapping Cairo's back alleys and its people's inner lives.",
-    scores:{dark:1,hopeful:3,curious:2,escapist:2,short:0,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:2,characters:3,ideas:1,story:3,easy:3,moderate:2,hard:0}
+    scores:{dark:1,hopeful:2,curious:2,escapist:2,short:0,medium:3,long:1,europe:0,americas:0,asia:0,africa:2,prose:2,characters:3,ideas:1,story:2,easy:3,moderate:2,hard:0}
   },
   {
     key:"Mrs Dalloway",
@@ -796,7 +796,7 @@ const BOOKS = [
     why:"You want something that opens your eyes to a world and a history rarely seen in literature — <strong>Season of Migration to the North</strong> is exactly that. A Sudanese man returns home from England carrying a dark secret. Often called the most important Arabic novel ever written, it's a brilliant mirror image of Conrad's Heart of Darkness — told from the other side.",
     tags:["Sudan","Africa","Post-Colonial","Arabic","Essential"],
     bio:"Tayeb Salih was a Sudanese writer whose Season of Migration to the North was voted the most important Arabic novel of the 20th century by the Arab Literary Academy. He wrote it while working for the BBC Arabic Service in London.",
-    scores:{dark:2,hopeful:1,curious:3,escapist:2,short:2,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:3,characters:2,ideas:3,story:2,easy:1,moderate:2,hard:3}
+    scores:{dark:2,hopeful:2,curious:3,escapist:2,short:2,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:3,characters:2,ideas:3,story:3,easy:1,moderate:2,hard:3}
   },
   {
     key:"A Grain of Wheat",
@@ -809,7 +809,7 @@ const BOOKS = [
     why:"You want something that opens your eyes to African history through the lives of ordinary people — <strong>A Grain of Wheat</strong> is one of the finest novels ever written about decolonisation. Set in the days leading up to Kenya's independence, it weaves together the stories of villagers whose lives were transformed by the Mau Mau uprising. Moving, complex, and completely absorbing.",
     tags:["Kenya","Africa","Decolonisation","Independence","Post-Colonial"],
     bio:"Ngũgĩ wa Thiong'o is East Africa's greatest novelist, who later gave up English to write in his native Gikuyu language as a political act against cultural colonisation. He was imprisoned without charge in 1977 and remains a perennial favourite for the Nobel Prize.",
-    scores:{dark:1,hopeful:2,curious:3,escapist:1,short:0,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:2,characters:3,ideas:3,story:2,easy:2,moderate:2,hard:2}
+    scores:{dark:1,hopeful:3,curious:3,escapist:2,short:0,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:2,characters:3,ideas:3,story:3,easy:2,moderate:2,hard:2}
   },
   {
     key:"Middlemarch",
@@ -879,20 +879,28 @@ function getRecommendation() {
     if(answers[3]) score += (s[answers[3]] || 0) * 2;
     if(answers[4]) score += (s[answers[4]] || 0) * 3;
     if(answers[5]) score += (s[answers[5]] || 0) * 2;
-    // Small random nudge (0–2 points) — enough to vary ties, never enough to override a strong match
-    score += Math.random() * 2;
     return { book, score };
   });
 
-  // Find the highest score
-  const topScore = Math.max(...scored.map(b => b.score));
+  // Sort by score descending
+  scored.sort((a, b) => b.score - a.score);
 
-  // Collect all books within 3 points of the top — the close contenders
-  const contenders = scored.filter(b => b.score >= topScore - 3);
+  // Take the top 5 candidates (guaranteed variety pool)
+  // Then apply weighted random — higher scorers are more likely but not certain
+  const pool = scored.slice(0, 5);
 
-  // Pick randomly among contenders so repeat visitors get variety
-  const winner = contenders[Math.floor(Math.random() * contenders.length)];
-  return winner.book;
+  // Give each candidate a weighted ticket count based on rank
+  // 1st place: 5 tickets, 2nd: 4, 3rd: 3, 4th: 2, 5th: 1
+  // This means the best match wins ~33% of the time, not 100%
+  const tickets = [];
+  const weights = [5, 4, 3, 2, 1];
+  pool.forEach((entry, i) => {
+    const count = weights[i] || 1;
+    for(let t = 0; t < count; t++) tickets.push(entry.book);
+  });
+
+  // Pick randomly from the weighted ticket pool
+  return tickets[Math.floor(Math.random() * tickets.length)];
 }
 
 // ── PROGRESS ──
