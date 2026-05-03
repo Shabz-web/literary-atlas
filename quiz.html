@@ -223,7 +223,7 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
   <h1 class="hero-title">What Should I <em>Read Next?</em></h1>
   <p class="hero-sub">Answer five quick questions about your mood and reading preferences — and we'll match you with a book you'll love from the world's greatest writers.</p>
   <div class="hero-pills">
-    <span class="hero-pill">📚 18 classic books</span>
+    <span class="hero-pill">📚 28 essential books</span>
     <span class="hero-pill">🌍 7 world regions</span>
     <span class="hero-pill">⚡ Under 60 seconds</span>
     <span class="hero-pill">✨ Personalised for you</span>
@@ -448,7 +448,7 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
     <p class="seo-text">Our free book quiz asks you five simple questions about your mood, how much time you have, which part of the world interests you, what you value most in a book, and how much of a challenge you're looking for. Based on your answers, our scoring system matches you with the book from our curated list of 18 essential works that fits you best right now.</p>
 
     <h2 class="seo-title">What kinds of books does the quiz recommend?</h2>
-    <p class="seo-text">The quiz draws from a handpicked selection of the world's most essential literary fiction — including works by Camus, García Márquez, Dostoevsky, Toni Morrison, Orwell, Kafka, Tolstoy, Murakami, Virginia Woolf, Chinua Achebe, Margaret Atwood, Ishiguro, Han Kang, Borges, Kawabata, Mahfouz, and Tokarczuk. These are books that have stood the test of time, won Nobel Prizes, and changed the course of world literature.</p>
+    <p class="seo-text">The quiz draws from a handpicked selection of the world's most essential literary fiction — including works by Camus, García Márquez, Dostoevsky, Toni Morrison, Orwell, Kafka, Tolstoy, Murakami, Virginia Woolf, Chinua Achebe, Margaret Atwood, Ishiguro, Han Kang, Borges, Kawabata, Mahfouz, Tokarczuk, Arundhati Roy, Adiga, Tayeb Salih, Ngũgĩ wa Thiong'o, Bulgakov, Tóibín, Viet Thanh Nguyen, George Eliot, and Jeffrey Eugenides. These are books that have stood the test of time, won Nobel and Booker Prizes, and changed the course of world literature.</p>
 
     <h2 class="seo-title">I don't know what to read next — can this quiz help?</h2>
     <p class="seo-text">Absolutely. Whether you're an experienced reader looking for your next great book, or someone who hasn't read literary fiction before and doesn't know where to start, the quiz is designed to give you a confident, personalised recommendation in under a minute. No book knowledge required — just answer honestly about how you're feeling and what you're looking for.</p>
@@ -483,7 +483,18 @@ const LINKS = {
   "Ficciones":              { kindle: "https://amzn.to/4cSwc4h", paper: "https://amzn.to/4t1aIGV" },
   "The Vegetarian":         { kindle: "https://amzn.to/4tJi03j", paper: "https://amzn.to/48An69L" },
   "Drive Your Plow":        { kindle: "https://amzn.to/3Re0UMv", paper: "https://amzn.to/4ePqste" },
-  "Snow Country":           { kindle: "https://amzn.to/4vYDPO5", paper: "https://amzn.to/4udqWxC" }
+  "Snow Country":               { kindle: "https://amzn.to/4vYDPO5",  paper: "https://amzn.to/4udqWxC"  },
+  "Middlesex":                  { kindle: "https://amzn.to/4tNOuJF",  paper: "https://amzn.to/4epNDKA"  },
+  "Down and Out":               { kindle: "https://amzn.to/48BORP4",  paper: "https://amzn.to/48EAidB"  },
+  "The God of Small Things":    { kindle: "https://amzn.to/4djCDNM",  paper: "https://amzn.to/4w4jp62"  },
+  "Norwegian Wood":             { kindle: "https://amzn.to/4cNIcny",  paper: "https://amzn.to/4cMCEJZ"  },
+  "The White Tiger":            { kindle: "https://amzn.to/427fVSN",  paper: "https://amzn.to/4unc1Rw"  },
+  "Season of Migration":        { kindle: null,                        paper: "https://amzn.to/4dkkWgV"  },
+  "A Grain of Wheat":           { kindle: "https://amzn.to/4t9OFhu",  paper: "https://amzn.to/4utvY9F"  },
+  "Middlemarch":                { kindle: "https://amzn.to/3P0t8JV",  paper: "https://amzn.to/4taIt8M"  },
+  "The Master and Margarita":   { kindle: "https://amzn.to/3RhXdFB",  paper: "https://amzn.to/4tIvX1q"  },
+  "Brooklyn":                   { kindle: "https://amzn.to/4utAEwc",  paper: "https://amzn.to/42dT7kh"  },
+  "The Sympathizer":            { kindle: "https://amzn.to/48GOLG2",  paper: "https://amzn.to/3P1G02C"  }
 };
 
 // ── BOOK DATABASE ──
@@ -708,6 +719,149 @@ const BOOKS = [
     tags:["Japan","Beauty","Impermanence","Atmosphere","Nobel Prize"],
     bio:"Yasunari Kawabata was the first Japanese writer to win the Nobel Prize in Literature in 1968. He developed a haiku-like prose of fleeting beauty and melancholy unique to Japanese literature.",
     scores:{dark:1,hopeful:1,curious:1,escapist:3,short:3,medium:2,long:0,europe:0,americas:0,asia:3,africa:0,prose:3,characters:2,ideas:1,story:1,easy:2,moderate:2,hard:2}
+  },
+  {
+    key:"Middlesex",
+    author:"Jeffrey Eugenides",
+    book:"Middlesex",
+    year:"2002 · USA",
+    emoji:"🌟",
+    headline:"A family saga unlike any other.",
+    sub:"Three generations, two continents, one extraordinary voice.",
+    why:"You want an epic with unforgettable characters and big ideas — <strong>Middlesex</strong> delivers all three. Cal Stephanides narrates the story of his Greek immigrant family across three generations, from Smyrna to Detroit to suburban America, weaving together history, identity, and transformation into one of the most ambitious American novels of the 21st century. Pulitzer Prize winner.",
+    tags:["USA","Identity","Family Saga","Greek American","Pulitzer Prize"],
+    bio:"Jeffrey Eugenides is an American novelist whose second novel Middlesex won the Pulitzer Prize in 2003. He spent nine years writing it — tracing themes of identity, genetics, and the American immigrant experience with extraordinary scope and warmth.",
+    scores:{dark:1,hopeful:2,curious:3,escapist:2,short:0,medium:1,long:3,europe:1,americas:3,asia:0,africa:0,prose:2,characters:3,ideas:3,story:2,easy:1,moderate:2,hard:2}
+  },
+  {
+    key:"Down and Out",
+    author:"George Orwell",
+    book:"Down and Out in Paris and London",
+    year:"1933 · England / France",
+    emoji:"🥖",
+    headline:"Poverty up close — vivid, funny, and unforgettable.",
+    sub:"Orwell at his most raw and immediate.",
+    why:"You want something curious, readable, and genuinely eye-opening — <strong>Down and Out in Paris and London</strong> is exactly that. Orwell plunged himself into destitution to write this documentary account of dishwashing in Paris and tramping through England. It reads like a thriller about poverty — sharp, funny, and completely gripping. Finished in a weekend.",
+    tags:["England","France","Poverty","Documentary","Orwell"],
+    bio:"George Orwell wrote Down and Out in Paris and London after deliberately living among the destitute to understand poverty from the inside. It was his first published book and established the documentary precision that defined all his later work.",
+    scores:{dark:2,hopeful:1,curious:3,escapist:1,short:3,medium:2,long:0,europe:3,americas:0,asia:0,africa:0,prose:2,characters:2,ideas:3,story:2,easy:3,moderate:2,hard:1}
+  },
+  {
+    key:"The God of Small Things",
+    author:"Arundhati Roy",
+    book:"The God of Small Things",
+    year:"1997 · India",
+    emoji:"🌺",
+    headline:"The most beautiful novel written in English in decades.",
+    sub:"Love, caste, and tragedy in the lush world of Kerala.",
+    why:"You want prose so beautiful it stops you in your tracks — <strong>The God of Small Things</strong> is the pinnacle of that experience. Roy's debut novel about forbidden love and the crushing weight of caste in Kerala is written in a language so inventive and sensuous it feels like nothing else. It will break your heart and you will love every moment of it. Booker Prize winner.",
+    tags:["India","Kerala","Caste","Beautiful Prose","Booker Prize"],
+    bio:"Arundhati Roy was an unknown architect when The God of Small Things won the Booker Prize in 1997 and sold over six million copies. She then spent two decades as a political activist before returning to fiction with The Ministry of Utmost Happiness in 2017.",
+    scores:{dark:2,hopeful:1,curious:2,escapist:3,short:0,medium:3,long:1,europe:0,americas:0,asia:3,africa:0,prose:3,characters:3,ideas:2,story:2,easy:1,moderate:2,hard:2}
+  },
+  {
+    key:"Norwegian Wood",
+    author:"Haruki Murakami",
+    book:"Norwegian Wood",
+    year:"1987 · Japan",
+    emoji:"🎸",
+    headline:"Murakami's most tender and heartbreaking novel.",
+    sub:"A love story that stays with you forever.",
+    why:"You want something warm, melancholy, and beautifully written — <strong>Norwegian Wood</strong> is Murakami at his most emotionally direct. Toru Watanabe looks back on his student years in 1960s Tokyo, and a love triangle shadowed by loss and mental illness. Less surreal than his other novels, more purely felt — a perfect entry point into Japanese literary fiction.",
+    tags:["Japan","Love","Loss","Coming of Age","Murakami"],
+    bio:"Haruki Murakami wrote Norwegian Wood in Greece and Italy, far from Japan, as a deliberate exercise in memory and distance. It became a phenomenon in Japan — selling millions of copies — and introduced him to a global readership.",
+    scores:{dark:2,hopeful:2,curious:1,escapist:2,short:0,medium:3,long:1,europe:0,americas:0,asia:3,africa:0,prose:2,characters:3,ideas:1,story:2,easy:2,moderate:2,hard:1}
+  },
+  {
+    key:"The White Tiger",
+    author:"Aravind Adiga",
+    book:"The White Tiger",
+    year:"2008 · India",
+    emoji:"🐯",
+    headline:"Dark, funny, and razor-sharp.",
+    sub:"A servant's rise through India's class system — told with savage wit.",
+    why:"You want big ideas, a gripping story, and something genuinely surprising — <strong>The White Tiger</strong> delivers all three with furious energy. Balram Halwai, a driver from the poorest part of India, narrates his rise to entrepreneur in a series of letters to the Chinese Premier. Funny, disturbing, and completely compelling. Booker Prize winner.",
+    tags:["India","Class","Dark Comedy","Booker Prize","Gripping"],
+    bio:"Aravind Adiga was a journalist when The White Tiger won the Booker Prize in 2008 on his debut. The novel's savage portrait of inequality in modern India made it one of the most talked-about books of its decade.",
+    scores:{dark:3,hopeful:1,curious:2,escapist:1,short:0,medium:3,long:1,europe:0,americas:0,asia:3,africa:0,prose:2,characters:3,ideas:3,story:3,easy:2,moderate:2,hard:1}
+  },
+  {
+    key:"Season of Migration",
+    author:"Tayeb Salih",
+    book:"Season of Migration to the North",
+    year:"1966 · Sudan",
+    emoji:"🌾",
+    headline:"The most important Arabic novel you haven't read.",
+    sub:"A postcolonial masterpiece from Sudan.",
+    why:"You want something that opens your eyes to a world and a history rarely seen in literature — <strong>Season of Migration to the North</strong> is exactly that. A Sudanese man returns home from England carrying a dark secret. Often called the most important Arabic novel ever written, it's a brilliant mirror image of Conrad's Heart of Darkness — told from the other side.",
+    tags:["Sudan","Africa","Post-Colonial","Arabic","Essential"],
+    bio:"Tayeb Salih was a Sudanese writer whose Season of Migration to the North was voted the most important Arabic novel of the 20th century by the Arab Literary Academy. He wrote it while working for the BBC Arabic Service in London.",
+    scores:{dark:2,hopeful:1,curious:3,escapist:2,short:2,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:3,characters:2,ideas:3,story:2,easy:1,moderate:2,hard:3}
+  },
+  {
+    key:"A Grain of Wheat",
+    author:"Ngũgĩ wa Thiong'o",
+    book:"A Grain of Wheat",
+    year:"1967 · Kenya",
+    emoji:"🌍",
+    headline:"Kenya's independence — and the cost of it.",
+    sub:"Quiet, powerful, and deeply human.",
+    why:"You want something that opens your eyes to African history through the lives of ordinary people — <strong>A Grain of Wheat</strong> is one of the finest novels ever written about decolonisation. Set in the days leading up to Kenya's independence, it weaves together the stories of villagers whose lives were transformed by the Mau Mau uprising. Moving, complex, and completely absorbing.",
+    tags:["Kenya","Africa","Decolonisation","Independence","Post-Colonial"],
+    bio:"Ngũgĩ wa Thiong'o is East Africa's greatest novelist, who later gave up English to write in his native Gikuyu language as a political act against cultural colonisation. He was imprisoned without charge in 1977 and remains a perennial favourite for the Nobel Prize.",
+    scores:{dark:1,hopeful:2,curious:3,escapist:1,short:0,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:2,characters:3,ideas:3,story:2,easy:2,moderate:2,hard:2}
+  },
+  {
+    key:"Middlemarch",
+    author:"George Eliot",
+    book:"Middlemarch",
+    year:"1872 · England",
+    emoji:"🏡",
+    headline:"Repeatedly called the greatest novel in the English language.",
+    sub:"A vast, compassionate portrait of provincial life.",
+    why:"You want rich characters, big ideas, and writing of extraordinary intelligence — <strong>Middlemarch</strong> is the pinnacle of all three. George Eliot's panoramic study of idealism, marriage, ambition, and society in a provincial English town contains some of the wisest and most compassionate writing in all of literature. An epic that rewards every page.",
+    tags:["Victorian","England","Realism","Philosophy","Essential"],
+    bio:"George Eliot — the pen name of Mary Ann Evans — wrote under a male pseudonym to be taken seriously as a novelist. Middlemarch is consistently ranked the greatest novel in the English language. Henry James called her 'one of the most powerful minds of the century.'",
+    scores:{dark:0,hopeful:2,curious:3,escapist:2,short:0,medium:1,long:3,europe:3,americas:0,asia:0,africa:0,prose:3,characters:3,ideas:3,story:1,easy:0,moderate:2,hard:3}
+  },
+  {
+    key:"The Master and Margarita",
+    author:"Mikhail Bulgakov",
+    book:"The Master and Margarita",
+    year:"1967 · Russia",
+    emoji:"😈",
+    headline:"The Devil visits Soviet Moscow — chaos ensues.",
+    sub:"The great Russian novel you've never heard of.",
+    why:"You want to escape into something completely unlike anything you've read — <strong>The Master and Margarita</strong> is exactly that. When the Devil and his retinue arrive in Soviet Moscow, the consequences are hilarious, surreal, and deeply subversive. Bulgakov completed it in secret over 12 years, knowing it could never be published in his lifetime. Published 27 years after his death, it is now considered a masterpiece.",
+    tags:["Russia","Soviet Union","Fantasy","Satire","Dark Comedy"],
+    bio:"Mikhail Bulgakov wrote The Master and Margarita under Stalinist censorship, completing it in secret while knowing it could never be published. It was finally published in 1967, 27 years after his death, and is now considered one of the greatest Russian novels ever written.",
+    scores:{dark:2,hopeful:1,curious:2,escapist:3,short:0,medium:3,long:1,europe:3,americas:0,asia:0,africa:0,prose:2,characters:3,ideas:2,story:3,easy:1,moderate:2,hard:2}
+  },
+  {
+    key:"Brooklyn",
+    author:"Colm Tóibín",
+    book:"Brooklyn",
+    year:"2009 · Ireland / USA",
+    emoji:"🗽",
+    headline:"A quietly devastating story of leaving and belonging.",
+    sub:"Simple, perfect, and impossible to forget.",
+    why:"You want something warm, beautifully written, and deeply human — <strong>Brooklyn</strong> is exactly that. Eilis Lacey leaves small-town Ireland for 1950s New York, torn between two worlds and two versions of herself. Tóibín's prose is so precise and restrained that every emotion hits twice as hard. One of those rare novels that feels like real life remembered.",
+    tags:["Ireland","USA","Immigration","Love","Quiet Prose"],
+    bio:"Colm Tóibín is Ireland's finest living novelist, writing about grief, exile, and the difficulty of belonging with quiet precision. Brooklyn became a beloved film in 2015. His novel The Master imagines Henry James's inner life with extraordinary intimacy.",
+    scores:{dark:0,hopeful:3,curious:1,escapist:2,short:0,medium:3,long:1,europe:2,americas:2,asia:0,africa:0,prose:3,characters:3,ideas:1,story:2,easy:3,moderate:2,hard:1}
+  },
+  {
+    key:"The Sympathizer",
+    author:"Viet Thanh Nguyen",
+    book:"The Sympathizer",
+    year:"2015 · Vietnam / USA",
+    emoji:"🎭",
+    headline:"A communist spy. Two worlds. One brilliant, dark voice.",
+    sub:"The Vietnam War as you've never seen it.",
+    why:"You want big ideas, a gripping story, and a perspective that completely reframes something you thought you knew — <strong>The Sympathizer</strong> is one of the most original novels of the 21st century. A communist spy embedded with South Vietnamese refugees flees to America and narrates the experience with savage wit and double vision. Pulitzer Prize winner. Utterly unlike anything else.",
+    tags:["Vietnam","USA","Espionage","Post-Colonial","Pulitzer Prize"],
+    bio:"Viet Thanh Nguyen was born in Vietnam and raised in America, giving him the dual perspective that defines The Sympathizer. The novel won the Pulitzer Prize in 2016 and has been called the definitive literary response to the Vietnam War — from the Vietnamese side.",
+    scores:{dark:2,hopeful:1,curious:3,escapist:2,short:0,medium:3,long:2,europe:0,americas:2,asia:3,africa:0,prose:2,characters:2,ideas:3,story:3,easy:1,moderate:2,hard:2}
   }
 ];
 
@@ -716,18 +870,29 @@ const answers = {};
 
 // ── SCORING ──
 function getRecommendation() {
-  let best = null, bestScore = -1;
-  BOOKS.forEach(book => {
-    let score = 0;
+  // Score every book
+  const scored = BOOKS.map(book => {
     const s = book.scores;
+    let score = 0;
     if(answers[1]) score += (s[answers[1]] || 0) * 3;
     if(answers[2]) score += (s[answers[2]] || 0) * 2;
     if(answers[3]) score += (s[answers[3]] || 0) * 2;
     if(answers[4]) score += (s[answers[4]] || 0) * 3;
     if(answers[5]) score += (s[answers[5]] || 0) * 2;
-    if(score > bestScore){ bestScore = score; best = book; }
+    // Small random nudge (0–2 points) — enough to vary ties, never enough to override a strong match
+    score += Math.random() * 2;
+    return { book, score };
   });
-  return best;
+
+  // Find the highest score
+  const topScore = Math.max(...scored.map(b => b.score));
+
+  // Collect all books within 3 points of the top — the close contenders
+  const contenders = scored.filter(b => b.score >= topScore - 3);
+
+  // Pick randomly among contenders so repeat visitors get variety
+  const winner = contenders[Math.floor(Math.random() * contenders.length)];
+  return winner.book;
 }
 
 // ── PROGRESS ──
