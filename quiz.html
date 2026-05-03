@@ -796,7 +796,7 @@ const BOOKS = [
     why:"You want something that opens your eyes to a world and a history rarely seen in literature — <strong>Season of Migration to the North</strong> is exactly that. A Sudanese man returns home from England carrying a dark secret. Often called the most important Arabic novel ever written, it's a brilliant mirror image of Conrad's Heart of Darkness — told from the other side.",
     tags:["Sudan","Africa","Post-Colonial","Arabic","Essential"],
     bio:"Tayeb Salih was a Sudanese writer whose Season of Migration to the North was voted the most important Arabic novel of the 20th century by the Arab Literary Academy. He wrote it while working for the BBC Arabic Service in London.",
-    scores:{dark:2,hopeful:2,curious:3,escapist:2,short:2,medium:3,long:1,europe:0,americas:0,asia:0,africa:3,prose:3,characters:2,ideas:3,story:3,easy:1,moderate:2,hard:3}
+    scores:{dark:3,hopeful:0,curious:3,escapist:1,short:3,medium:2,long:0,europe:0,americas:0,asia:0,africa:3,prose:3,characters:2,ideas:3,story:2,easy:1,moderate:2,hard:3}
   },
   {
     key:"A Grain of Wheat",
@@ -868,6 +868,10 @@ const BOOKS = [
 // ── ANSWERS ──
 const answers = {};
 
+// ── LAST RESULT MEMORY (prevents same book showing consecutively) ──
+let lastRecommendedKey = null;
+let secondLastRecommendedKey = null;
+
 // ── SCORING ──
 function getRecommendation() {
   // Score every book
@@ -885,22 +889,36 @@ function getRecommendation() {
   // Sort by score descending
   scored.sort((a, b) => b.score - a.score);
 
-  // Take the top 5 candidates (guaranteed variety pool)
-  // Then apply weighted random — higher scorers are more likely but not certain
+  // Take top 5 candidates — accuracy over variety
+  // The memory system below provides variety without sacrificing match quality
   const pool = scored.slice(0, 5);
 
-  // Give each candidate a weighted ticket count based on rank
-  // 1st place: 5 tickets, 2nd: 4, 3rd: 3, 4th: 2, 5th: 1
-  // This means the best match wins ~33% of the time, not 100%
-  const tickets = [];
+  // Remove the last two shown books from the pool if possible
+  // (only remove if pool still has at least 3 books left after removal)
+  const filtered = pool.filter(entry => {
+    if(pool.length - [lastRecommendedKey, secondLastRecommendedKey].filter(k => k !== null).length < 3) return true;
+    return entry.book.key !== lastRecommendedKey && entry.book.key !== secondLastRecommendedKey;
+  });
+
+  const finalPool = filtered.length >= 2 ? filtered : pool;
+
+  // Weighted tickets — top books more likely but not certain
+  // Weights: 1st=5, 2nd=4, 3rd=3, 4th=2, 5th=1
   const weights = [5, 4, 3, 2, 1];
-  pool.forEach((entry, i) => {
+  const tickets = [];
+  finalPool.forEach((entry, i) => {
     const count = weights[i] || 1;
     for(let t = 0; t < count; t++) tickets.push(entry.book);
   });
 
-  // Pick randomly from the weighted ticket pool
-  return tickets[Math.floor(Math.random() * tickets.length)];
+  // Pick randomly from weighted pool
+  const winner = tickets[Math.floor(Math.random() * tickets.length)];
+
+  // Remember this result for next time
+  secondLastRecommendedKey = lastRecommendedKey;
+  lastRecommendedKey = winner.key;
+
+  return winner;
 }
 
 // ── PROGRESS ──
