@@ -219,7 +219,7 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
   <h1 class="hero-title">What Should I <em>Read Next?</em></h1>
   <p class="hero-sub">Answer three quick questions and we'll match you with a book you'll love from the world's greatest writers.</p>
   <div class="hero-pills">
-    <span class="hero-pill">📚 28 essential books</span>
+    <span class="hero-pill">📚 31 essential books</span>
     <span class="hero-pill">🌍 7 world regions</span>
     <span class="hero-pill">⚡ Under 30 seconds</span>
     <span class="hero-pill">✨ Personalised for you</span>
@@ -422,7 +422,10 @@ const LINKS = {
   "Middlemarch":                         { kindle: "https://amzn.to/3P0t8JV",  paper: "https://amzn.to/4taIt8M"  },
   "The Master and Margarita":            { kindle: "https://amzn.to/3RhXdFB",  paper: "https://amzn.to/4tIvX1q"  },
   "Brooklyn":                            { kindle: "https://amzn.to/4utAEwc",  paper: "https://amzn.to/42dT7kh"  },
-  "The Sympathizer":                     { kindle: "https://amzn.to/48GOLG2",  paper: "https://amzn.to/3P1G02C"  }
+  "The Sympathizer":                     { kindle: "https://amzn.to/48GOLG2",  paper: "https://amzn.to/3P1G02C"  },
+  "Brave New World":                     { kindle: "https://amzn.to/42b5BsZ",  paper: "https://amzn.to/3OIG3An"  },
+  "We":                                  { kindle: "https://amzn.to/4tzvVZ7",  paper: "https://amzn.to/4thLWTd"  },
+  "East of Eden":                        { kindle: "https://amzn.to/3QGfDQp",  paper: "https://amzn.to/48Ggxm3"  }
 };
 
 // ── BOOK DATABASE ──
@@ -796,6 +799,45 @@ const BOOKS = [
     tags:["Vietnam","USA","Espionage","Post-Colonial","Pulitzer Prize"],
     bio:"Viet Thanh Nguyen was born in Vietnam and raised in America. The Sympathizer won the Pulitzer Prize in 2016 and has been called the definitive literary response to the Vietnam War — told from the Vietnamese side.",
     scores:{ dark:2, hopeful:1, curious:3, escapist:1, short:0, medium:3, long:2, any:2, easy:1, moderate:2, hard:2 }
+  },
+  {
+    key:"Brave New World",
+    author:"Aldous Huxley",
+    book:"Brave New World",
+    year:"1932 · England",
+    emoji:"🧪",
+    headline:"A pleasure-drugged dystopia more relevant than ever.",
+    sub:"The darker, funnier companion to Nineteen Eighty-Four.",
+    why:"You want something thought-provoking and short — <strong>Brave New World</strong> is exactly that. Huxley imagined a future of engineered happiness: no pain, no passion, no freedom — and everyone is perfectly content with it. At around 260 pages it's a quick read, but its questions about technology, conformity, and the cost of happiness feel more urgent today than when Huxley wrote them in 1932.",
+    tags:["Dystopia","England","Ideas","Satire","Classic"],
+    bio:"Aldous Huxley was born into one of England's most distinguished intellectual families and published Brave New World in 1932, imagining a world of state-engineered pleasure. He later moved to California, experimented with mescaline, and wrote The Doors of Perception — which gave its name to Jim Morrison's band.",
+    scores:{ dark:2, hopeful:0, curious:3, escapist:1, short:3, medium:2, long:0, any:2, easy:2, moderate:3, hard:1 }
+  },
+  {
+    key:"We",
+    author:"Yevgeny Zamyatin",
+    book:"We",
+    year:"1921 · Russia",
+    emoji:"🔩",
+    headline:"The original dystopia — before Orwell, before Huxley.",
+    sub:"The novel that started it all.",
+    why:"You want something short, dark, and intellectually challenging — <strong>We</strong> is the book that invented modern dystopian fiction. Written in 1921, it directly inspired both Brave New World and Nineteen Eighty-Four. Set in a totalitarian future state where citizens have numbers instead of names and live in glass houses under permanent surveillance, its cold, fragmented, mathematical prose is unlike anything else — genuinely unsettling in a way that feels completely modern.",
+    tags:["Russia","Dystopia","Totalitarianism","Dark","Foundational"],
+    bio:"Yevgeny Zamyatin was a Russian naval engineer and writer who was arrested by both the Tsar and the Communists for his freethinking. He wrote We in 1920–21, but it was banned in the Soviet Union until 1988. George Orwell read it before writing Nineteen Eighty-Four. Zamyatin died in poverty in Paris in 1937.",
+    scores:{ dark:3, hopeful:0, curious:3, escapist:1, short:3, medium:2, long:0, any:2, easy:0, moderate:1, hard:3 }
+  },
+  {
+    key:"East of Eden",
+    author:"John Steinbeck",
+    book:"East of Eden",
+    year:"1952 · USA",
+    emoji:"🌾",
+    headline:"Steinbeck's magnum opus — the great American family epic.",
+    sub:"Biblical in scope, deeply human in feeling.",
+    why:"You want a long, ambitious epic that stays with you for weeks — <strong>East of Eden</strong> is Steinbeck's greatest achievement and one of the most sweeping American novels ever written. Set in California's Salinas Valley, it follows two families across generations in a retelling of the Cain and Abel story. Rich in character, philosophy, and landscape, it's challenging and occasionally slow, but those who commit to it invariably call it one of the best books they've ever read.",
+    tags:["USA","Epic","Family","Good and Evil","California"],
+    bio:"John Steinbeck called East of Eden 'the first book' — meaning the one he had been working towards his whole life. He considered it his masterpiece. He won the Nobel Prize in Literature in 1962 and remains one of America's most beloved and widely read novelists.",
+    scores:{ dark:1, hopeful:2, curious:3, escapist:2, short:0, medium:0, long:3, any:2, easy:0, moderate:2, hard:3 }
   }
 ];
 
