@@ -148,6 +148,22 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:52px 40px;text-a
 .f-attr{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#b88c1a;opacity:.6;}
 .f-disc{margin-top:32px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;color:rgba(250,246,238,.2);max-width:520px;margin-left:auto;margin-right:auto;}
 
+/* ── FEATURED AUTHOR ── */
+.featured-wrap{background:var(--parchment);border-top:1px solid var(--border);border-bottom:2px solid var(--ink);padding:36px 40px;}
+.featured-inner{max-width:1440px;margin:0 auto;}
+.featured-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:14px;}
+.featured-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.featured-header{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:12px;}
+.featured-name{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--ink);line-height:1.1;}
+.featured-dates{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--ink-faint);white-space:nowrap;}
+.featured-book{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-left:auto;}
+.featured-bio{font-size:14px;line-height:1.8;color:var(--ink-soft);max-width:960px;}
+.featured-bio strong{color:var(--ink);font-weight:600;}
+@media(max-width:900px){
+  .featured-wrap{padding:28px 20px;}
+  .featured-book{margin-left:0;width:100%;}
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .hero{padding:60px 24px 54px;}
@@ -163,6 +179,16 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:52px 40px;text-a
   .c-num{font-size:52px;}
 }
 </style>
+
+<!-- ── FEATURED AUTHOR CONFIG — update this block to change the featured author ── -->
+<script>
+const featuredAuthor = {
+  name: "George Orwell",
+  dates: "1903–1950 · England",
+  spotlightBook: "Essential Work: Nineteen Eighty-Four (1949)",
+  bio: "Born Eric Arthur Blair in colonial India, Orwell spent his life in deliberate proximity to the world he wrote about — serving as a colonial police officer in Burma, living among the destitute in Paris, fighting in the Spanish Civil War, and reporting from the industrial north of England. His two great fables, <strong>Animal Farm</strong> (1945) and <strong>Nineteen Eighty-Four</strong> (1949), are among the most politically consequential novels ever written, giving the world a permanent language for tyranny: Big Brother, doublethink, thoughtcrime. His 1946 essay <strong>Politics and the English Language</strong> remains the finest account of how language is weaponised to deceive — and why clarity of prose is inseparable from clarity of thought. He died at forty-six, just as <em>Nineteen Eighty-Four</em> made him world-famous, having refused, until the end, to look away."
+};
+</script>
 </head>
 <body>
 
@@ -223,6 +249,8 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:52px 40px;text-a
   </div>
 </div>
 
+<section class="featured-wrap" id="featured-author"></section>
+
 <main class="main" id="main"></main>
 
 <footer>
@@ -230,6 +258,24 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:52px 40px;text-a
   <p class="f-attr">— George R.R. Martin</p>
   <p class="f-disc">This site contains affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.</p>
 </footer>
+
+<script>
+// ── Render Featured Author ──
+(function(){
+  const f = featuredAuthor;
+  const section = document.getElementById('featured-author');
+  section.innerHTML = `
+    <div class="featured-inner">
+      <div class="featured-label">Featured Author<span></span></div>
+      <div class="featured-header">
+        <span class="featured-name">${f.name}</span>
+        <span class="featured-dates">${f.dates}</span>
+        <span class="featured-book">${f.spotlightBook}</span>
+      </div>
+      <div class="featured-bio">${f.bio}</div>
+    </div>`;
+})();
+</script>
 
 <script>
 const W=[
@@ -370,7 +416,7 @@ function render(){
   });
 }
 
-document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('.fbtn');if(!b)return;document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');af=b.dataset.f;render();});
+document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('.fbtn');if(!b)return;document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');af=b.dataset.f;render();document.getElementById('main').scrollIntoView({behavior:'smooth',block:'start'});});
 document.getElementById('search').addEventListener('input',e=>{sq=e.target.value.trim();render();});
 render();
 </script>
