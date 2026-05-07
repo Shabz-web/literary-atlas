@@ -219,7 +219,7 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
   <h1 class="hero-title">What Should I <em>Read Next?</em></h1>
   <p class="hero-sub">Answer three quick questions and we'll match you with a book you'll love from the world's greatest writers.</p>
   <div class="hero-pills">
-    <span class="hero-pill">📚 31 essential books</span>
+    <span class="hero-pill">📚 34 essential books</span>
     <span class="hero-pill">🌍 7 world regions</span>
     <span class="hero-pill">⚡ Under 30 seconds</span>
     <span class="hero-pill">✨ Personalised for you</span>
@@ -378,7 +378,7 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
     <h2 class="seo-title">How does the book recommendation quiz work?</h2>
     <p class="seo-text">Our free book quiz asks you three simple questions — how you're feeling right now, how much time you have, and how much of a reading challenge you're looking for. Based on your answers, our system matches you with the book from our curated list of 28 essential works that fits you best right now.</p>
     <h2 class="seo-title">What kinds of books does the quiz recommend?</h2>
-    <p class="seo-text">The quiz draws from a handpicked selection of the world's most essential literary fiction — including works by Camus, García Márquez, Dostoevsky, Toni Morrison, Orwell, Kafka, Tolstoy, Murakami, Virginia Woolf, Chinua Achebe, Margaret Atwood, Ishiguro, Han Kang, Borges, Kawabata, Mahfouz, Tokarczuk, Arundhati Roy, Adiga, Tayeb Salih, Ngũgĩ wa Thiong'o, Bulgakov, Tóibín, Viet Thanh Nguyen, George Eliot, and Jeffrey Eugenides.</p>
+    <p class="seo-text">The quiz draws from a handpicked selection of the world's most essential literary fiction — including works by Camus, García Márquez, Dostoevsky, Toni Morrison, Orwell, Kafka, Tolstoy, Murakami, Virginia Woolf, Chinua Achebe, Margaret Atwood, Ishiguro, Han Kang, Borges, Kawabata, Mahfouz, Tokarczuk, Arundhati Roy, Adiga, Tayeb Salih, Ngũgĩ wa Thiong'o, Bulgakov, Tóibín, Viet Thanh Nguyen, George Eliot, Jeffrey Eugenides, Muriel Barbery, Carlos Ruiz Zafón, and Yukio Mishima.</p>
     <h2 class="seo-title">I don't know what to read next — can this quiz help?</h2>
     <p class="seo-text">Absolutely. Whether you're an experienced reader looking for your next great book, or someone who hasn't read literary fiction before and doesn't know where to start, the quiz is designed to give you a confident, personalised recommendation in under 30 seconds.</p>
     <h2 class="seo-title">Looking for more great books to read?</h2>
@@ -425,7 +425,10 @@ const LINKS = {
   "The Sympathizer":                     { kindle: "https://amzn.to/48GOLG2",  paper: "https://amzn.to/3P1G02C"  },
   "Brave New World":                     { kindle: "https://amzn.to/42b5BsZ",  paper: "https://amzn.to/3OIG3An"  },
   "We":                                  { kindle: "https://amzn.to/4tzvVZ7",  paper: "https://amzn.to/4thLWTd"  },
-  "East of Eden":                        { kindle: "https://amzn.to/3QGfDQp",  paper: "https://amzn.to/48Ggxm3"  }
+  "East of Eden":                        { kindle: "https://amzn.to/3QGfDQp",  paper: "https://amzn.to/48Ggxm3"  },
+  "The Elegance of the Hedgehog":        { kindle: "https://amzn.to/42hKgOz",  paper: "https://amzn.to/48QKbFg"  },
+  "The Shadow of the Wind":              { kindle: "https://amzn.to/4ngOX4B",  paper: "https://amzn.to/4nd3IW9"  },
+  "The Sailor Who Fell from Grace with the Sea": { kindle: "https://amzn.to/4nzPFdL", paper: "https://amzn.to/4d6i2v2" }
 };
 
 // ── BOOK DATABASE ──
@@ -838,6 +841,45 @@ const BOOKS = [
     tags:["USA","Epic","Family","Good and Evil","California"],
     bio:"John Steinbeck called East of Eden 'the first book' — meaning the one he had been working towards his whole life. He considered it his masterpiece. He won the Nobel Prize in Literature in 1962 and remains one of America's most beloved and widely read novelists.",
     scores:{ dark:1, hopeful:2, curious:3, escapist:2, short:0, medium:0, long:3, any:2, easy:0, moderate:2, hard:3 }
+  },
+  {
+    key:"The Elegance of the Hedgehog",
+    author:"Muriel Barbery",
+    book:"The Elegance of the Hedgehog",
+    year:"2006 · France",
+    emoji:"🦔",
+    headline:"A hidden life of extraordinary beauty.",
+    sub:"A concierge, a precocious child, and the question of what it means to live well.",
+    why:"You want something warm, curious, and quietly philosophical — <strong>The Elegance of the Hedgehog</strong> is exactly that. Renée is a Parisian concierge who conceals a rich inner life of art, literature, and philosophy from the bourgeois residents above her. Told in alternating voices with Paloma, a brilliant twelve-year-old who has decided she will end her life on her thirteenth birthday, it is a novel about beauty, class, and the unexpected moments that make life worth living. Gently life-affirming without being sentimental.",
+    tags:["France","Philosophy","Class","Quiet","Life-Affirming"],
+    bio:"Muriel Barbery is a French philosopher and novelist who taught philosophy in high schools before writing this, her second novel. It became a phenomenon in France — selling over a million copies — before becoming an international bestseller translated into more than forty languages.",
+    scores:{ dark:0, hopeful:3, curious:3, escapist:2, short:0, medium:3, long:1, any:2, easy:2, moderate:3, hard:1 }
+  },
+  {
+    key:"The Shadow of the Wind",
+    author:"Carlos Ruiz Zafón",
+    book:"The Shadow of the Wind",
+    year:"2001 · Spain",
+    emoji:"📖",
+    headline:"A labyrinthine mystery set in post-war Barcelona.",
+    sub:"A love letter to books, secrets, and the city of Barcelona.",
+    why:"You want to escape into another world entirely — and post-war Barcelona, as conjured by Zafón, is one of the most atmospheric settings in modern fiction. Young Daniel discovers a mysterious novel by a forgotten author and becomes obsessed with uncovering the man who seems to be destroying every copy of his work. Part gothic mystery, part love story, part historical novel — completely absorbing from the first page.",
+    tags:["Spain","Barcelona","Mystery","Gothic","Escapist"],
+    bio:"Carlos Ruiz Zafón was a Spanish novelist who worked in Hollywood before returning to Barcelona to write The Shadow of the Wind — the first of his Cemetery of Forgotten Books quartet. It became one of the best-selling Spanish novels of all time and established him as one of the great storytellers of his generation. He died in 2020.",
+    scores:{ dark:2, hopeful:2, curious:2, escapist:3, short:0, medium:2, long:3, any:2, easy:2, moderate:3, hard:1 }
+  },
+  {
+    key:"The Sailor Who Fell from Grace with the Sea",
+    author:"Yukio Mishima",
+    book:"The Sailor Who Fell from Grace with the Sea",
+    year:"1963 · Japan",
+    emoji:"⚓",
+    headline:"Dark, precise, and deeply unsettling.",
+    sub:"A short Japanese masterpiece about beauty, violence, and disillusionment.",
+    why:"You want something short, dark, and unlike anything you've read before — <strong>The Sailor Who Fell from Grace with the Sea</strong> delivers all three. A widow in Yokohama falls for a merchant sailor while her teenage son, part of a cold and pitiless gang of boys, watches their relationship with growing contempt. Mishima's prose is crystalline and his moral vision savage — it is a novel about the gap between the ideal and the real, and what happens when that gap becomes unbearable.",
+    tags:["Japan","Dark","Short","Violence","Existential"],
+    bio:"Yukio Mishima was one of Japan's most celebrated and controversial writers — nominated three times for the Nobel Prize. He was obsessed with the tension between beauty and decay, tradition and modernity. He died by ritual suicide in 1970 after a failed attempt to inspire a nationalist uprising, cementing his status as one of literature's most extraordinary and disturbing figures.",
+    scores:{ dark:3, hopeful:0, curious:2, escapist:1, short:3, medium:2, long:0, any:2, easy:1, moderate:2, hard:3 }
   }
 ];
 
