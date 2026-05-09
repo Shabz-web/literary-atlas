@@ -219,7 +219,7 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
   <h1 class="hero-title">What Should I <em>Read Next?</em></h1>
   <p class="hero-sub">Answer three quick questions and we'll match you with a book you'll love from the world's greatest writers.</p>
   <div class="hero-pills">
-    <span class="hero-pill">📚 34 essential books</span>
+    <span class="hero-pill">📚 36 essential books</span>
     <span class="hero-pill">🌍 7 world regions</span>
     <span class="hero-pill">⚡ Under 30 seconds</span>
     <span class="hero-pill">✨ Personalised for you</span>
@@ -428,7 +428,9 @@ const LINKS = {
   "East of Eden":                        { kindle: "https://amzn.to/3QGfDQp",  paper: "https://amzn.to/48Ggxm3"  },
   "The Elegance of the Hedgehog":        { kindle: "https://amzn.to/42hKgOz",  paper: "https://amzn.to/48QKbFg"  },
   "The Shadow of the Wind":              { kindle: "https://amzn.to/4ngOX4B",  paper: "https://amzn.to/4nd3IW9"  },
-  "The Sailor Who Fell from Grace with the Sea": { kindle: "https://amzn.to/4nzPFdL", paper: "https://amzn.to/4d6i2v2" }
+  "The Sailor Who Fell from Grace with the Sea": { kindle: "https://amzn.to/4nzPFdL", paper: "https://amzn.to/4d6i2v2" },
+  "Ulysses":                             { kindle: "https://amzn.to/4toT4gs",  paper: "https://amzn.to/4wrXjLd"  },
+  "Waiting for Godot":                   { kindle: "https://amzn.to/4dDytPZ",  paper: "https://amzn.to/4dkD5Kz"  }
 };
 
 // ── BOOK DATABASE ──
@@ -880,6 +882,32 @@ const BOOKS = [
     tags:["Japan","Dark","Short","Violence","Existential"],
     bio:"Yukio Mishima was one of Japan's most celebrated and controversial writers — nominated three times for the Nobel Prize. He was obsessed with the tension between beauty and decay, tradition and modernity. He died by ritual suicide in 1970 after a failed attempt to inspire a nationalist uprising, cementing his status as one of literature's most extraordinary and disturbing figures.",
     scores:{ dark:3, hopeful:0, curious:2, escapist:1, short:3, medium:2, long:0, any:2, easy:1, moderate:2, hard:3 }
+  },
+  {
+    key:"Ulysses",
+    author:"James Joyce",
+    book:"Ulysses",
+    year:"1922 · Ireland",
+    emoji:"🌀",
+    headline:"The greatest novel ever written — and the most demanding.",
+    sub:"One day in Dublin that contains everything.",
+    why:"You want the ultimate challenge — a book that will change how you read forever. <strong>Ulysses</strong> maps a single day in Dublin through the minds of Leopold Bloom, Molly Bloom, and Stephen Dedalus using 18 completely different prose styles. It is difficult, hilarious, tender, and endlessly rewarding. No novel asks more of its reader, and none gives more back. Read it with an open mind and infinite patience — it will repay both.",
+    tags:["Ireland","Modernism","Stream of Consciousness","Experimental","Masterpiece"],
+    bio:"James Joyce spent seven years writing Ulysses in Trieste, Zurich, and Paris, completing it in 1922. A self-imposed exile from Ireland, he wrote with encyclopaedic ambition about his small, beloved, suffocating city. It was banned in the United States for obscenity until 1933 and is now universally regarded as the greatest novel of the 20th century.",
+    scores:{ dark:1, hopeful:2, curious:3, escapist:2, short:0, medium:0, long:3, any:2, easy:0, moderate:0, hard:3 }
+  },
+  {
+    key:"Waiting for Godot",
+    author:"Samuel Beckett",
+    book:"Waiting for Godot",
+    year:"1953 · Ireland / France",
+    emoji:"🌳",
+    headline:"Two men wait for someone who never comes.",
+    sub:"The most important play of the 20th century — and one of its funniest.",
+    why:"You want something short, strange, and intellectually unlike anything else — <strong>Waiting for Godot</strong> is exactly that. Two tramps stand beside a bare tree and wait, talk, argue, and wait some more. Nothing happens, twice — and yet it contains more insight into the human condition than most thousand-page novels. It is both the bleakest and one of the funniest things ever written. You can read it in an evening and think about it for years.",
+    tags:["Ireland","Absurdism","Existentialism","Short","Nobel Prize"],
+    bio:"Samuel Beckett was an Irish writer who chose to write in French to force himself into simplicity. He served in the French Resistance during WWII, an act of quiet heroism he dismissed as 'the decent thing to do.' Waiting for Godot premiered in Paris in 1953 and changed theatre forever. He won the Nobel Prize in 1969 and sent a telegram declining to attend the ceremony.",
+    scores:{ dark:2, hopeful:1, curious:3, escapist:1, short:3, medium:1, long:0, any:2, easy:1, moderate:2, hard:3 }
   }
 ];
 
