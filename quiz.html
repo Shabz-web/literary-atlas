@@ -219,7 +219,7 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
   <h1 class="hero-title">What Should I <em>Read Next?</em></h1>
   <p class="hero-sub">Answer three quick questions and we'll match you with a book you'll love from the world's greatest writers.</p>
   <div class="hero-pills">
-    <span class="hero-pill">📚 36 essential books</span>
+    <span class="hero-pill">📚 41 essential books</span>
     <span class="hero-pill">🌍 7 world regions</span>
     <span class="hero-pill">⚡ Under 30 seconds</span>
     <span class="hero-pill">✨ Personalised for you</span>
@@ -430,7 +430,12 @@ const LINKS = {
   "The Shadow of the Wind":              { kindle: "https://amzn.to/4ngOX4B",  paper: "https://amzn.to/4nd3IW9"  },
   "The Sailor Who Fell from Grace with the Sea": { kindle: "https://amzn.to/4nzPFdL", paper: "https://amzn.to/4d6i2v2" },
   "Ulysses":                             { kindle: "https://amzn.to/4toT4gs",  paper: "https://amzn.to/4wrXjLd"  },
-  "Waiting for Godot":                   { kindle: "https://amzn.to/4dDytPZ",  paper: "https://amzn.to/4dkD5Kz"  }
+  "Waiting for Godot":                   { kindle: "https://amzn.to/4dDytPZ",  paper: "https://amzn.to/4dkD5Kz"  },
+  "In Search of Lost Time":             { kindle: "https://amzn.to/4djIdym",  paper: "https://amzn.to/42pjAvl"  },
+  "Blood Meridian":                      { kindle: "https://amzn.to/4eGTdbC",  paper: "https://amzn.to/4ttHL6S"  },
+  "American Pastoral":                   { kindle: "https://amzn.to/4wpaAnG",  paper: "https://amzn.to/4fcFOIn"  },
+  "White Noise":                         { kindle: "https://amzn.to/4u6n5Tq",  paper: "https://amzn.to/4tpZN9V"  },
+  "Infinite Jest":                       { kindle: "https://amzn.to/4eH8dWT",  paper: "https://amzn.to/4eH4nNC"  }
 };
 
 // ── BOOK DATABASE ──
@@ -908,6 +913,71 @@ const BOOKS = [
     tags:["Ireland","Absurdism","Existentialism","Short","Nobel Prize"],
     bio:"Samuel Beckett was an Irish writer who chose to write in French to force himself into simplicity. He served in the French Resistance during WWII, an act of quiet heroism he dismissed as 'the decent thing to do.' Waiting for Godot premiered in Paris in 1953 and changed theatre forever. He won the Nobel Prize in 1969 and sent a telegram declining to attend the ceremony.",
     scores:{ dark:2, hopeful:1, curious:3, escapist:1, short:3, medium:1, long:0, any:2, easy:1, moderate:2, hard:3 }
+  },
+  {
+    key:"In Search of Lost Time",
+    author:"Marcel Proust",
+    book:"In Search of Lost Time",
+    year:"1913–1927 · France",
+    emoji:"🫖",
+    headline:"The greatest novel ever written about memory.",
+    sub:"4,000 pages. A lifetime of reading. Worth every word.",
+    why:"You want the ultimate long, challenging reading experience — and nothing in literature compares to Proust. <strong>In Search of Lost Time</strong> is a seven-volume meditation on memory, time, art, love, and Parisian society, written in prose of extraordinary beauty and precision. The famous opening — a madeleine dipped in tea unlocking a flood of childhood memory — is the most celebrated moment in world literature. Begin with <em>Swann's Way</em> and see how far you go.",
+    tags:["France","Memory","Modernism","Epic","Masterpiece"],
+    bio:"Marcel Proust spent his last decade working in a cork-lined Paris bedroom, writing through the night, completing his seven-volume masterpiece even as his health failed. He died in 1922, just after correcting the final proofs of the second half. It is the longest novel in the French literary canon and widely considered the greatest work of prose fiction ever written.",
+    scores:{ dark:1, hopeful:2, curious:3, escapist:2, short:0, medium:0, long:3, any:2, easy:0, moderate:1, hard:3 }
+  },
+  {
+    key:"Blood Meridian",
+    author:"Cormac McCarthy",
+    book:"Blood Meridian",
+    year:"1985 · USA",
+    emoji:"🩸",
+    headline:"The most brutal and beautiful novel in American literature.",
+    sub:"Violence, landscape, and the void — written in Biblical prose.",
+    why:"You want something dark, challenging, and written with a ferocity unlike anything else — <strong>Blood Meridian</strong> is exactly that. Following a scalp-hunting expedition through 1840s Mexico and the American Southwest, McCarthy's prose is a relentless, almost musical torrent of violence and landscape. Harold Bloom called it the greatest American novel of the second half of the 20th century. It demands everything and gives everything back.",
+    tags:["USA","Violence","The West","Dark","American Literature"],
+    bio:"Cormac McCarthy wrote Blood Meridian in 1985 to little initial fanfare. It was only after the success of All the Pretty Horses and No Country for Old Men that it was recognised as a masterpiece. McCarthy wrote with Biblical grandeur and minimal punctuation, and remained one of the most reclusive major writers in American literary history until his death in 2023.",
+    scores:{ dark:3, hopeful:0, curious:2, escapist:1, short:0, medium:2, long:3, any:2, easy:0, moderate:1, hard:3 }
+  },
+  {
+    key:"American Pastoral",
+    author:"Philip Roth",
+    book:"American Pastoral",
+    year:"1997 · USA",
+    emoji:"🇺🇸",
+    headline:"The unravelling of the American Dream.",
+    sub:"A Pulitzer Prize masterpiece about the 1960s that tears America apart.",
+    why:"You want something curious and ambitious that gets under the skin of a nation — <strong>American Pastoral</strong> is the great American novel of the late 20th century. The Swede — a golden Newark athlete, model citizen, loving father — watches his entire world collapse when his teenage daughter commits an act of political violence. Roth dissects the 1960s, the American Dream, and the impossibility of innocence with savage intelligence.",
+    tags:["USA","1960s","American Dream","Pulitzer Prize","Political"],
+    bio:"Philip Roth spent over fifty years interrogating American identity with savage comic intelligence from his imagined Newark. American Pastoral won the Pulitzer Prize in 1998 and is widely considered his masterpiece. He was nominated for the Nobel Prize virtually every year of his career and retired from writing in 2010, saying he had given everything he had to give.",
+    scores:{ dark:2, hopeful:1, curious:3, escapist:1, short:0, medium:3, long:2, any:2, easy:1, moderate:2, hard:2 }
+  },
+  {
+    key:"White Noise",
+    author:"Don DeLillo",
+    book:"White Noise",
+    year:"1985 · USA",
+    emoji:"📺",
+    headline:"America's fear of death, filtered through a supermarket.",
+    sub:"The great novel of consumer culture and existential dread.",
+    why:"You want something curious, darkly funny, and genuinely thought-provoking — <strong>White Noise</strong> is all three. Jack Gladney, professor of Hitler Studies at a small college, navigates domestic life, a toxic chemical spill, and his overwhelming fear of death in a novel that feels more prescient every year. DeLillo captures the static hum of modern American life — the media noise, the brand names, the ambient anxiety — with wit and precision.",
+    tags:["USA","Consumer Culture","Existential","Dark Comedy","Postmodern"],
+    bio:"Don DeLillo is the novelist of American paranoia — assassination, nuclear fear, the media spectacle, consumer culture. White Noise won the National Book Award in 1985 and established him as one of the defining voices of postmodern American fiction. His vision of a media-saturated, death-fearing America has only grown more relevant with time.",
+    scores:{ dark:2, hopeful:0, curious:3, escapist:1, short:0, medium:3, long:1, any:2, easy:1, moderate:2, hard:2 }
+  },
+  {
+    key:"Infinite Jest",
+    author:"David Foster Wallace",
+    book:"Infinite Jest",
+    year:"1996 · USA",
+    emoji:"🎾",
+    headline:"The most ambitious American novel of its generation.",
+    sub:"1,000 pages. 388 footnotes. Completely unlike anything else.",
+    why:"You want the ultimate challenge — a book that will test your commitment and reward it beyond measure. <strong>Infinite Jest</strong> is set in a near-future North America where a film called the Entertainment is so pleasurable it renders viewers catatonic, and follows a tennis academy and a drug rehabilitation centre whose fates are intertwined. It is funny, heartbreaking, exhausting, and magnificent. If you finish it, you will feel you have climbed a mountain. You have.",
+    tags:["USA","Postmodern","Addiction","Dark Comedy","Challenge"],
+    bio:"David Foster Wallace was one of the most talented and troubled writers of his generation. Infinite Jest took him three years to write and arrived in 1996 as a cultural phenomenon. His essays and short stories are equally remarkable. He struggled with depression throughout his life and died by suicide in 2008, leaving an unfinished novel, The Pale King, published posthumously.",
+    scores:{ dark:2, hopeful:1, curious:3, escapist:1, short:0, medium:0, long:3, any:2, easy:0, moderate:0, hard:3 }
   }
 ];
 
