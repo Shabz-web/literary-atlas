@@ -280,9 +280,8 @@ body {
 
 /* ── AUTHOR GRID ── */
 .author-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-  gap: 24px;
+  columns: 3;
+  column-gap: 24px;
 }
 
 /* ── AUTHOR CARD ── */
@@ -294,9 +293,18 @@ body {
   box-shadow: 0 2px 10px var(--shadow-s);
   transition: box-shadow .2s, transform .2s;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+  margin-bottom: 24px;
 }
 .acard:hover { box-shadow: 0 6px 24px var(--shadow-m); transform: translateY(-2px); }
 .acard.hidden { display: none; }
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
 /* region accent colours — matching main atlas */
 .acard[data-region="Europe"]        { --ac: #2e5e40; }
@@ -366,8 +374,18 @@ body {
   padding: 0 26px 18px;
   text-align: justify;
   text-justify: inter-word;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 .card-excerpt strong { color: var(--ink); font-weight: 600; }
+.card-excerpt.expanded {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
 
 /* ── EXPAND BUTTON ── */
 .card-expand-btn {
@@ -394,11 +412,17 @@ body {
 
 /* ── FULL ESSAY ── */
 .card-full-essay {
-  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .4s ease, padding .4s ease;
+  padding: 0 26px;
+  border-top: none;
+}
+.card-full-essay.open {
+  max-height: 2000px;
   padding: 0 26px 26px;
   border-top: 1px solid var(--border-s);
 }
-.card-full-essay.open { display: block; }
 .essay-label {
   font-family: 'DM Mono', monospace;
   font-size: 9px;
@@ -455,16 +479,24 @@ footer {
 }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .author-grid { columns: 2; }
+}
 @media (max-width: 900px) {
   .hero { padding: 52px 24px 44px; }
   .controls { padding: 0 20px; top: 54px; }
   .main { padding: 32px 20px 80px; }
-  .nav-inner { padding: 0 20px; }
+  .nav-inner { padding: 0 20px; gap: 6px; }
   footer { padding: 36px 24px; }
 }
-@media (max-width: 600px) {
-  .author-grid { grid-template-columns: 1fr; }
-  .search-wrap input { width: 160px; }
+@media (max-width: 660px) {
+  .author-grid { columns: 1; }
+  .search-wrap input { width: 150px; }
+  .card-name { font-size: 20px; }
+  .card-excerpt { font-size: 14px; }
+  .controls-right { gap: 6px; }
+  .count-pill { display: none; }
+  .nav-brand { font-size: 16px; }
 }
 </style>
 </head>
@@ -608,21 +640,23 @@ function render() {
     const cardId = `essay-${i}`;
 
     card.innerHTML = `
-      <div class="card-header">
-        <div></div>
-        <div class="card-badges">
-          <span class="badge-century">${a.century} Century</span>
-          <span class="badge-region">${a.region}</span>
+      <div class="card-body">
+        <div class="card-header">
+          <div></div>
+          <div class="card-badges">
+            <span class="badge-century">${a.century} Century</span>
+            <span class="badge-region">${a.region}</span>
+          </div>
         </div>
+        <div class="card-name">${a.name}</div>
+        <div class="card-dates">${a.dates} · ${a.nationality}</div>
+        <div class="card-spotlight">${a.spotlightBook}</div>
+        <div class="card-excerpt">${a.excerpt}</div>
+        <button class="card-expand-btn" onclick="toggleEssay('${cardId}', this)" aria-expanded="false">
+          <span class="expand-icon" id="icon-${cardId}">▼</span>
+          <span id="label-${cardId}">Read Full Profile</span>
+        </button>
       </div>
-      <div class="card-name">${a.name}</div>
-      <div class="card-dates">${a.dates} · ${a.nationality}</div>
-      <div class="card-spotlight">${a.spotlightBook}</div>
-      <div class="card-excerpt">${a.excerpt}</div>
-      <button class="card-expand-btn" onclick="toggleEssay('${cardId}', this)" aria-expanded="false">
-        <span class="expand-icon" id="icon-${cardId}">▼</span>
-        <span id="label-${cardId}">Read Full Profile</span>
-      </button>
       <div class="card-full-essay" id="${cardId}">
         <div class="essay-label">Full Profile</div>
         <div class="essay-text">${a.essay}</div>
@@ -641,13 +675,14 @@ function render() {
 
 // ── TOGGLE ESSAY ──
 function toggleEssay(id, btn) {
-  const essay = document.getElementById(id);
-  const icon  = document.getElementById('icon-' + id);
-  const label = document.getElementById('label-' + id);
-  const isOpen = essay.classList.contains('open');
-
+  const essay   = document.getElementById(id);
+  const icon    = document.getElementById('icon-' + id);
+  const label   = document.getElementById('label-' + id);
+  const excerpt = btn.closest('.acard').querySelector('.card-excerpt');
+  const isOpen  = essay.classList.contains('open');
   essay.classList.toggle('open', !isOpen);
   icon.classList.toggle('open', !isOpen);
+  excerpt.classList.toggle('expanded', !isOpen);
   btn.setAttribute('aria-expanded', String(!isOpen));
   label.textContent = isOpen ? 'Read Full Profile' : 'Close Profile';
 }
