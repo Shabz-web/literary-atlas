@@ -208,8 +208,9 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">Read The Canon</a>
     <div class="nav-sep"></div>
-    <a href="index.html" class="nav-link">The Atlas</a>
-    <a href="quiz.html" class="nav-link active">Book Quiz</a>
+    <a href="index.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;padding:5px 12px;border:1px solid var(--border);border-radius:3px;background:transparent;white-space:nowrap;flex-shrink:0;transition:all .15s;" onmouseover="this.style.background='#f2ead8'" onmouseout="this.style.background='transparent'">← The Atlas</a>
+    <a href="quiz.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#966800;text-decoration:none;padding:5px 12px;border:1px solid #d4b86a;border-radius:3px;background:#fdf3d8;white-space:nowrap;flex-shrink:0;transition:all .15s;" onmouseover="this.style.background='#f5e9c0'" onmouseout="this.style.background='#fdf3d8'">★ Take the Quiz</a>
+    <a href="featured.html" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#2e5e40;text-decoration:none;padding:5px 12px;border:1px solid #a0c8b0;border-radius:3px;background:#eef6f1;white-space:nowrap;flex-shrink:0;transition:all .15s;" onmouseover="this.style.background='#deeee6'" onmouseout="this.style.background='#eef6f1'">✦ Featured Authors</a>
   </div>
 </nav>
 
@@ -219,7 +220,7 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
   <h1 class="hero-title">What Should I <em>Read Next?</em></h1>
   <p class="hero-sub">Answer three quick questions and we'll match you with a book you'll love from the world's greatest writers.</p>
   <div class="hero-pills">
-    <span class="hero-pill">📚 41 essential books</span>
+    <span class="hero-pill">📚 43 essential books</span>
     <span class="hero-pill">🌍 7 world regions</span>
     <span class="hero-pill">⚡ Under 30 seconds</span>
     <span class="hero-pill">✨ Personalised for you</span>
@@ -402,7 +403,7 @@ const LINKS = {
   "Things Fall Apart":                   { kindle: "https://amzn.to/3QyyUTP",  paper: "https://amzn.to/4eqTkbf"  },
   "Kafka on the Shore":                  { kindle: "https://amzn.to/3QH7zPb",  paper: "https://amzn.to/42FuDQZ"  },
   "Beloved":                             { kindle: "https://amzn.to/42Fh3gq",  paper: "https://amzn.to/4mZa9Ms"  },
-  "Nineteen Eighty-Four":                { kindle: "https://amzn.to/4elqJ78",  paper: "https://amzn.to/4n87ala"  },
+  "Nineteen Eighty-Four":                { kindle: "https://amzn.to/4dGced3",  paper: "https://amzn.to/42yGjFe"  },
   "Anna Karenina":                       { kindle: "https://amzn.to/42beIK7",  paper: "https://amzn.to/4cFHU1W"  },
   "The Metamorphosis":                   { kindle: "https://amzn.to/4cZu1uv",  paper: "https://amzn.to/4w4lOh0"  },
   "Midaq Alley":                         { kindle: "https://amzn.to/4n87kZO",  paper: "https://amzn.to/4elYTrm"  },
@@ -435,7 +436,9 @@ const LINKS = {
   "Blood Meridian":                      { kindle: "https://amzn.to/4eGTdbC",  paper: "https://amzn.to/4ttHL6S"  },
   "American Pastoral":                   { kindle: "https://amzn.to/4wpaAnG",  paper: "https://amzn.to/4fcFOIn"  },
   "White Noise":                         { kindle: "https://amzn.to/4u6n5Tq",  paper: "https://amzn.to/4tpZN9V"  },
-  "Infinite Jest":                       { kindle: "https://amzn.to/4eH8dWT",  paper: "https://amzn.to/4eH4nNC"  }
+  "Infinite Jest":                       { kindle: "https://amzn.to/4eH8dWT",  paper: "https://amzn.to/4eH4nNC"  },
+  "What We Talk About When We Talk About Love": { kindle: "https://amzn.to/4tBpc0K", paper: "https://amzn.to/3PAdd5v" },
+  "The Wind-Up Bird Chronicle":          { kindle: "https://amzn.to/3PF64AT",  paper: "https://amzn.to/4dHtfDO"  }
 };
 
 // ── BOOK DATABASE ──
@@ -978,6 +981,32 @@ const BOOKS = [
     tags:["USA","Postmodern","Addiction","Dark Comedy","Challenge"],
     bio:"David Foster Wallace was one of the most talented and troubled writers of his generation. Infinite Jest took him three years to write and arrived in 1996 as a cultural phenomenon. His essays and short stories are equally remarkable. He struggled with depression throughout his life and died by suicide in 2008, leaving an unfinished novel, The Pale King, published posthumously.",
     scores:{ dark:2, hopeful:1, curious:3, escapist:1, short:0, medium:0, long:3, any:2, easy:0, moderate:0, hard:3 }
+  },
+  {
+    key:"What We Talk About When We Talk About Love",
+    author:"Raymond Carver",
+    book:"What We Talk About When We Talk About Love",
+    year:"1981 · USA",
+    emoji:"🥃",
+    headline:"The short story stripped to its bare bones.",
+    sub:"Carver invented a new way of writing — and a new way of seeing ordinary life.",
+    why:"You want something short, quietly devastating, and unlike anything you've read — <strong>What We Talk About When We Talk About Love</strong> is exactly that. Carver's stories of working-class Americans — their marriages, their drinking, their silences — are so stripped back that what's left unsaid carries more weight than anything on the page. You can read the whole collection in an afternoon. You won't stop thinking about it for weeks.",
+    tags:["USA","Short Stories","Minimalism","Working Class","Quiet"],
+    bio:"Raymond Carver grew up in poverty in the Pacific Northwest, worked menial jobs, and wrote between shifts. His stripped-back prose style — later called 'dirty realism' — was shaped partly by necessity and partly by his editor Gordon Lish, who cut his stories to their bare bones. He overcame alcoholism in his forties and spent his last decade producing some of the finest short fiction in American literary history before dying of lung cancer at fifty.",
+    scores:{ dark:2, hopeful:1, curious:2, escapist:1, short:3, medium:2, long:0, any:2, easy:2, moderate:2, hard:2 }
+  },
+  {
+    key:"The Wind-Up Bird Chronicle",
+    author:"Haruki Murakami",
+    book:"The Wind-Up Bird Chronicle",
+    year:"1994 · Japan",
+    emoji:"🐦",
+    headline:"Murakami's most ambitious and mysterious novel.",
+    sub:"A missing cat leads a quiet man into the depths of Tokyo's hidden world.",
+    why:"You want to escape into something long, dreamlike, and completely absorbing — <strong>The Wind-Up Bird Chronicle</strong> is Murakami at his most ambitious. Toru Okada sets out to find his missing cat and gradually descends into a labyrinthine mystery involving a dry well, a psychic, a war veteran, and the dark underside of Japanese history. Hypnotic, strange, and utterly unputdownable.",
+    tags:["Japan","Surrealism","Mystery","Epic","Dreamlike"],
+    bio:"Haruki Murakami is Japan's most internationally famous novelist, equally beloved in Tokyo and New York. The Wind-Up Bird Chronicle — published in Japan in 1994 and in English in 1997 — is widely regarded as his masterpiece, weaving personal loss together with Japan's suppressed wartime history in a narrative of dreamlike intensity.",
+    scores:{ dark:2, hopeful:1, curious:2, escapist:3, short:0, medium:1, long:3, any:2, easy:1, moderate:2, hard:2 }
   }
 ];
 
