@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="In-depth profiles of the world's greatest fiction writers — their lives, their times, and the books that defined them. A growing archive of literary essays from Read The Canon.">
+<meta name="keywords" content="literary author profiles, great writers biography, classic authors essays, world literature profiles, Franz Kafka biography, George Orwell life and work, Samuel Beckett biography, essential writers guide">
+<meta property="og:title" content="Featured Authors — Read The Canon">
+<meta property="og:description" content="In-depth profiles of the world's greatest fiction writers — their lives, their times, and the books that defined them.">
+<meta property="og:url" content="https://www.readthecanon.com/featured">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Featured Authors — Read The Canon">
+<meta name="twitter:description" content="In-depth profiles of the world's greatest fiction writers.">
+<link rel="canonical" href="https://www.readthecanon.com/featured">
+<title>Featured Authors — In-Depth Literary Profiles — Read The Canon</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SYZWJP94TF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SYZWJP94TF');
+</script>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Featured Authors — Read The Canon",
+  "description": "In-depth profiles of the world's greatest fiction writers — their lives, their times, and the books that defined them.",
+  "url": "https://www.readthecanon.com/featured",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Read The Canon",
+    "url": "https://www.readthecanon.com"
+  }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:      #faf6ee;
+  --parchment:  #f2ead8;
+  --paper:      #ede4d0;
+  --white:      #ffffff;
+  --ink:        #1c1410;
+  --ink-soft:   #3d3228;
+  --ink-muted:  #7a6e5e;
+  --ink-faint:  #b0a494;
+  --gold:       #966800;
+  --gold-l:     #b88c1a;
+  --gold-pale:  #fdf3d8;
+  --gold-bd:    #d4b86a;
+  --rust:       #8e3520;
+  --sage:       #2e5e40;
+  --slate:      #1e3d5a;
+  --violet:     #4a2a60;
+  --sienna:     #7a4020;
+  --teal:       #1a5e52;
+  --border:     #ddd0b8;
+  --border-s:   #ece4d0;
+  --shadow-s:   rgba(28,20,10,0.06);
+  --shadow-m:   rgba(28,20,10,0.12);
+}
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+.nav {
+  background: var(--white);
+  border-bottom: 2px solid var(--ink);
+  box-shadow: 0 2px 12px var(--shadow-m);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  flex-wrap: wrap;
+}
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -.3px;
+  margin-right: 4px;
+}
+.nav-sep {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.nav-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all .15s;
+  display: inline-block;
+}
+.nav-btn-home {
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+  background: transparent;
+}
+.nav-btn-home:hover { background: var(--parchment); color: var(--ink); }
+.nav-btn-quiz {
+  color: var(--gold);
+  border: 1px solid var(--gold-bd);
+  background: var(--gold-pale);
+}
+.nav-btn-quiz:hover { background: #f5e9c0; }
+.nav-btn-featured {
+  color: var(--sage);
+  border: 1px solid #a0c8b0;
+  background: #eef6f1;
+  font-weight: 700;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 72px 40px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.02) 59px, rgba(255,255,255,0.02) 60px);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8e3520, #b88c1a, #2e5e40, #1e3d5a, #4a2a60);
+}
+.hero-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #b88c1a;
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: up .6s ease .1s forwards;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 88px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: up .7s ease .25s forwards;
+}
+.hero-title em { font-style: italic; font-weight: 400; color: #b88c1a; }
+.hero-sub {
+  font-size: clamp(15px, 2vw, 19px);
+  font-style: italic;
+  color: rgba(250,246,238,.55);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0;
+  animation: up .7s ease .4s forwards;
+}
+@keyframes up { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── CONTROLS ── */
+.controls {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px var(--shadow-s);
+  padding: 0 40px;
+  position: sticky;
+  top: 54px;
+  z-index: 90;
+}
+.controls-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+.fbtn {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all .15s;
+  white-space: nowrap;
+}
+.fbtn:hover { background: var(--parchment); color: var(--ink); border-color: var(--ink-muted); }
+.fbtn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.controls-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.count-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-bd);
+  padding: 3px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.search-wrap { position: relative; }
+.search-wrap input {
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  padding: 6px 14px 6px 32px;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 3px;
+  width: 220px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.search-wrap input:focus { border-color: var(--ink-muted); box-shadow: 0 0 0 3px rgba(28,20,10,.06); }
+.search-wrap input::placeholder { color: var(--ink-faint); }
+.search-icon { position:absolute; left:9px; top:50%; transform:translateY(-50%); color:var(--ink-faint); font-size:14px; pointer-events:none; }
+
+/* ── MAIN ── */
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 40px 100px;
+}
+
+/* ── AUTHOR GRID ── */
+.author-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 24px;
+}
+
+/* ── AUTHOR CARD ── */
+.acard {
+  background: var(--white);
+  border: 1px solid var(--border-s);
+  border-top: 3px solid var(--ac, var(--gold-l));
+  border-radius: 5px;
+  box-shadow: 0 2px 10px var(--shadow-s);
+  transition: box-shadow .2s, transform .2s;
+  overflow: hidden;
+}
+.acard:hover { box-shadow: 0 6px 24px var(--shadow-m); transform: translateY(-2px); }
+.acard.hidden { display: none; }
+
+/* region accent colours — matching main atlas */
+.acard[data-region="Europe"]        { --ac: #2e5e40; }
+.acard[data-region="Russia"]        { --ac: #8c2a2a; }
+.acard[data-region="North America"] { --ac: #1e3d5a; }
+.acard[data-region="Latin America"] { --ac: #8e3520; }
+.acard[data-region="Africa"]        { --ac: #7a4020; }
+.acard[data-region="Asia"]          { --ac: #4a2a60; }
+.acard[data-region="Middle East"]   { --ac: #1a5e52; }
+
+.card-header {
+  padding: 22px 26px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.card-badges { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.badge-region {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--ac, var(--gold-l));
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.badge-century {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--ink-muted);
+  background: var(--parchment);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  padding: 0 26px 4px;
+}
+.card-dates {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-faint);
+  padding: 0 26px 14px;
+}
+.card-spotlight {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ac, var(--gold));
+  opacity: .75;
+  padding: 0 26px 10px;
+}
+.card-excerpt {
+  font-size: 14.5px;
+  line-height: 1.78;
+  color: var(--ink-soft);
+  padding: 0 26px 18px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.card-excerpt strong { color: var(--ink); font-weight: 600; }
+
+/* ── EXPAND BUTTON ── */
+.card-expand-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ac, var(--gold));
+  background: var(--parchment);
+  border: none;
+  border-top: 1px solid var(--border-s);
+  width: 100%;
+  padding: 12px 26px;
+  cursor: pointer;
+  transition: background .15s;
+  text-align: left;
+}
+.card-expand-btn:hover { background: var(--paper); }
+.expand-icon { transition: transform .3s ease; font-size: 11px; }
+.expand-icon.open { transform: rotate(180deg); }
+
+/* ── FULL ESSAY ── */
+.card-full-essay {
+  display: none;
+  padding: 0 26px 26px;
+  border-top: 1px solid var(--border-s);
+}
+.card-full-essay.open { display: block; }
+.essay-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 18px 0 12px;
+}
+.essay-text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  text-align: justify;
+  text-justify: inter-word;
+}
+.essay-text strong { color: var(--ink); font-weight: 600; }
+.essay-text em { font-style: italic; }
+
+/* ── NO RESULTS ── */
+.no-results {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 80px 40px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink-faint);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: rgba(250,246,238,.5);
+  padding: 48px 40px;
+  text-align: center;
+  margin-top: 0;
+}
+.f-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-style: italic;
+  color: rgba(250,246,238,.65);
+  max-width: 560px;
+  margin: 0 auto 12px;
+  line-height: 1.55;
+}
+.f-attr {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #b88c1a;
+  opacity: .6;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero { padding: 52px 24px 44px; }
+  .controls { padding: 0 20px; top: 54px; }
+  .main { padding: 32px 20px 80px; }
+  .nav-inner { padding: 0 20px; }
+  footer { padding: 36px 24px; }
+}
+@media (max-width: 600px) {
+  .author-grid { grid-template-columns: 1fr; }
+  .search-wrap input { width: 160px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">Read The Canon</a>
+    <div class="nav-sep"></div>
+    <a href="index.html" class="nav-btn nav-btn-home">← The Atlas</a>
+    <a href="quiz.html" class="nav-btn nav-btn-quiz">★ Take the Quiz</a>
+    <a href="featured.html" class="nav-btn nav-btn-featured">✦ Featured Authors</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <p class="hero-kicker">In-depth literary profiles · A growing archive</p>
+  <h1 class="hero-title">Featured <em>Authors</em></h1>
+  <p class="hero-sub">Lives, times, and legacies — extended essays on the writers who shaped world literature.</p>
+</header>
+
+<!-- ── CONTROLS ── -->
+<div class="controls">
+  <div class="controls-inner">
+    <div id="filters" style="display:flex;gap:4px;flex-wrap:wrap;">
+      <button class="fbtn active" data-f="all">All</button>
+      <button class="fbtn" data-f="19th">19th C.</button>
+      <button class="fbtn" data-f="20th">20th C.</button>
+      <button class="fbtn" data-f="21st">21st C.</button>
+      <button class="fbtn" data-f="Europe">Europe</button>
+      <button class="fbtn" data-f="Russia">Russia</button>
+      <button class="fbtn" data-f="North America">N. America</button>
+      <button class="fbtn" data-f="Latin America">Latin America</button>
+      <button class="fbtn" data-f="Africa">Africa</button>
+      <button class="fbtn" data-f="Asia">Asia</button>
+      <button class="fbtn" data-f="Middle East">Middle East</button>
+    </div>
+    <div class="controls-right">
+      <span class="count-pill" id="countPill">3 authors</span>
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="searchInput" placeholder="Search authors…">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<main class="main">
+  <div class="author-grid" id="authorGrid"></div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p class="f-quote">"Literature is the safe and traditional vehicle through which we learn we are not alone."</p>
+  <p class="f-attr">— Ursula K. Le Guin</p>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+// AUTHOR DATABASE
+// To add a new author, copy one entry block and
+// fill in all fields. That's all you need to do.
+// ══════════════════════════════════════════════
+const AUTHORS = [
+  {
+    name: "George Orwell",
+    dates: "1903–1950",
+    nationality: "England",
+    region: "Europe",
+    century: "20th",
+    spotlightBook: "Essential Work: Nineteen Eighty-Four (1949)",
+    excerpt: "Born Eric Arthur Blair in colonial India, Orwell spent his life in deliberate proximity to the world he wrote about — serving as a colonial police officer in Burma, living among the destitute in Paris, fighting in the Spanish Civil War, and reporting from the industrial north of England. His two great fables, <strong>Animal Farm</strong> (1945) and <strong>Nineteen Eighty-Four</strong> (1949), are among the most politically consequential novels ever written, giving the world a permanent language for tyranny: Big Brother, doublethink, thoughtcrime.",
+    essay: "Born Eric Arthur Blair in colonial India, Orwell spent his life in deliberate proximity to the world he wrote about — serving as a colonial police officer in Burma, living among the destitute in Paris, fighting in the Spanish Civil War, and reporting from the industrial north of England. His two great fables, <strong>Animal Farm</strong> (1945) and <strong>Nineteen Eighty-Four</strong> (1949), are among the most politically consequential novels ever written, giving the world a permanent language for tyranny: Big Brother, doublethink, thoughtcrime. His 1946 essay <strong>Politics and the English Language</strong> remains the finest account of how language is weaponised to deceive — and why clarity of prose is inseparable from clarity of thought. He died at forty-six, just as <em>Nineteen Eighty-Four</em> made him world-famous, having refused, until the end, to look away."
+  },
+  {
+    name: "Samuel Beckett",
+    dates: "1906–1989",
+    nationality: "Ireland / France",
+    region: "Europe",
+    century: "20th",
+    spotlightBook: "Essential Work: Waiting for Godot (1953)",
+    excerpt: "Born in Dublin into a Protestant middle-class family, Beckett spent most of his adult life in Paris, where he made one of the most radical decisions in literary history: to abandon his native English and write in French — a language not his own — in order to strip his prose of all comfort and habit. The result was a body of work unlike anything before it. <strong>Waiting for Godot</strong> (1953) brought theatre to a standstill across Europe: two tramps wait beside a tree for someone who never comes, talking to fill the void. It is at once unbearably bleak and persistently, inexplicably funny.",
+    essay: "Born in Dublin into a Protestant middle-class family, Beckett spent most of his adult life in Paris, where he made one of the most radical decisions in literary history: to abandon his native English and write in French — a language not his own — in order to strip his prose of all comfort and habit. The result was a body of work unlike anything before it. <strong>Waiting for Godot</strong> (1953) brought theatre to a standstill across Europe: two tramps wait beside a tree for someone who never comes, talking to fill the void. It is at once unbearably bleak and persistently, inexplicably funny. His trilogy of novels — <strong>Molloy</strong>, <strong>Malone Dies</strong>, and <strong>The Unnamable</strong> — pushed fiction to its absolute limits, dissolving plot, character, and grammar itself into a pure stream of failing, desperate consciousness. He served in the French Resistance during the Nazi occupation of Paris, an act of quiet heroism he dismissed as 'the decent thing to do.' He won the Nobel Prize in 1969 and sent a telegram declining to attend the ceremony. In the end, Beckett's genius was to make the void itself speak — and to find, against all odds, something almost like laughter in it."
+  },
+  {
+    name: "Franz Kafka",
+    dates: "1883–1924",
+    nationality: "Bohemia (Czech Republic)",
+    region: "Europe",
+    century: "20th",
+    spotlightBook: "Essential Work: The Trial (1925)",
+    excerpt: "Franz Kafka was born into a German-speaking Jewish family in Prague, then part of the Austro-Hungarian Empire, and spent his working life as an insurance lawyer — a fact that feels both impossibly mundane and entirely fitting for the man who made bureaucratic terror into high art. He published almost nothing in his lifetime and instructed his closest friend, Max Brod, to burn all his manuscripts after his death. Brod ignored him, and the world inherited three unfinished novels and a body of short fiction that gave the modern age one of its most essential words. <strong>Kafkaesque</strong>: that quality of nightmarish, inexplicable institutional power against which the individual struggles in vain, never knowing the charge, never reaching the authority, never understanding the rules.",
+    essay: "Franz Kafka was born into a German-speaking Jewish family in Prague, then part of the Austro-Hungarian Empire, and spent his working life as an insurance lawyer — a fact that feels both impossibly mundane and entirely fitting for the man who made bureaucratic terror into high art. He published almost nothing in his lifetime and instructed his closest friend, Max Brod, to burn all his manuscripts after his death. Brod ignored him, and the world inherited three unfinished novels and a body of short fiction that gave the modern age one of its most essential words. <strong>Kafkaesque</strong>: that quality of nightmarish, inexplicable institutional power against which the individual struggles in vain, never knowing the charge, never reaching the authority, never understanding the rules. In <strong>The Trial</strong>, Josef K. is arrested one morning without explanation and prosecuted by a court he can never locate for a crime that is never named. In <strong>The Metamorphosis</strong>, Gregor Samsa wakes as a giant insect and is gradually abandoned by his family. In <strong>The Castle</strong>, a land surveyor tries and fails, forever, to gain access to the authorities who summoned him. Kafka wrote these things in the small hours, after long days at the office, suffering from tuberculosis, engaged twice to the same woman and unable to marry either time, living in terror of his domineering father. He died at forty, knowing nothing of what he had made. We are still living inside it."
+  }
+];
+
+// ── STATE ──
+let activeFilter = 'all';
+let searchTerm = '';
+
+// ── FILTER & SEARCH ──
+function getVisible() {
+  return AUTHORS.filter(a => {
+    const mf = activeFilter === 'all' || activeFilter === a.century || activeFilter === a.region;
+    const q = searchTerm.toLowerCase();
+    const ms = !q ||
+      a.name.toLowerCase().includes(q) ||
+      a.nationality.toLowerCase().includes(q) ||
+      a.excerpt.toLowerCase().includes(q) ||
+      a.essay.toLowerCase().includes(q) ||
+      a.spotlightBook.toLowerCase().includes(q);
+    return mf && ms;
+  });
+}
+
+// ── RENDER ──
+function render() {
+  const visible = getVisible();
+  const grid = document.getElementById('authorGrid');
+  const pill = document.getElementById('countPill');
+
+  grid.innerHTML = '';
+  pill.textContent = `${visible.length} author${visible.length !== 1 ? 's' : ''}`;
+
+  if (!visible.length) {
+    grid.innerHTML = '<div class="no-results">No authors found — try a different search or filter</div>';
+    return;
+  }
+
+  visible.forEach((a, i) => {
+    const card = document.createElement('article');
+    card.className = 'acard';
+    card.dataset.region = a.region;
+    card.dataset.century = a.century;
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(10px)';
+
+    const cardId = `essay-${i}`;
+
+    card.innerHTML = `
+      <div class="card-header">
+        <div></div>
+        <div class="card-badges">
+          <span class="badge-century">${a.century} Century</span>
+          <span class="badge-region">${a.region}</span>
+        </div>
+      </div>
+      <div class="card-name">${a.name}</div>
+      <div class="card-dates">${a.dates} · ${a.nationality}</div>
+      <div class="card-spotlight">${a.spotlightBook}</div>
+      <div class="card-excerpt">${a.excerpt}</div>
+      <button class="card-expand-btn" onclick="toggleEssay('${cardId}', this)" aria-expanded="false">
+        <span class="expand-icon" id="icon-${cardId}">▼</span>
+        <span id="label-${cardId}">Read Full Profile</span>
+      </button>
+      <div class="card-full-essay" id="${cardId}">
+        <div class="essay-label">Full Profile</div>
+        <div class="essay-text">${a.essay}</div>
+      </div>
+    `;
+
+    grid.appendChild(card);
+
+    setTimeout(() => {
+      card.style.transition = 'opacity .35s ease, transform .35s ease';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, i * 60);
+  });
+}
+
+// ── TOGGLE ESSAY ──
+function toggleEssay(id, btn) {
+  const essay = document.getElementById(id);
+  const icon  = document.getElementById('icon-' + id);
+  const label = document.getElementById('label-' + id);
+  const isOpen = essay.classList.contains('open');
+
+  essay.classList.toggle('open', !isOpen);
+  icon.classList.toggle('open', !isOpen);
+  btn.setAttribute('aria-expanded', String(!isOpen));
+  label.textContent = isOpen ? 'Read Full Profile' : 'Close Profile';
+}
+
+// ── EVENTS ──
+document.getElementById('filters').addEventListener('click', e => {
+  const btn = e.target.closest('.fbtn');
+  if (!btn) return;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.f;
+  render();
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchTerm = e.target.value.trim();
+  render();
+});
+
+// ── INIT ──
+render();
+</script>
+</body>
+</html>
