@@ -222,7 +222,7 @@ footer{background:var(--ink);color:rgba(250,246,238,.5);padding:40px;text-align:
   <h1 class="hero-title">What Should I <em>Read Next?</em></h1>
   <p class="hero-sub">Answer three quick questions and we'll match you with a book you'll love from the world's greatest writers.</p>
   <div class="hero-pills">
-    <span class="hero-pill">📚 41 essential books</span>
+    <span class="hero-pill" id="bookCount">📚 46 essential books</span>
     <span class="hero-pill">🌍 7 world regions</span>
     <span class="hero-pill">⚡ Under 30 seconds</span>
     <span class="hero-pill">✨ Personalised for you</span>
@@ -405,7 +405,7 @@ const LINKS = {
   "Things Fall Apart":                   { kindle: "https://amzn.to/3QyyUTP",  paper: "https://amzn.to/4eqTkbf"  },
   "Kafka on the Shore":                  { kindle: "https://amzn.to/3QH7zPb",  paper: "https://amzn.to/42FuDQZ"  },
   "Beloved":                             { kindle: "https://amzn.to/42Fh3gq",  paper: "https://amzn.to/4mZa9Ms"  },
-  "Nineteen Eighty-Four":                { kindle: "https://amzn.to/4elqJ78",  paper: "https://amzn.to/4n87ala"  },
+  "Nineteen Eighty-Four":                { kindle: "https://amzn.to/4dGced3",  paper: "https://amzn.to/42yGjFe"  },
   "Anna Karenina":                       { kindle: "https://amzn.to/42beIK7",  paper: "https://amzn.to/4cFHU1W"  },
   "The Metamorphosis":                   { kindle: "https://amzn.to/4cZu1uv",  paper: "https://amzn.to/4w4lOh0"  },
   "Midaq Alley":                         { kindle: "https://amzn.to/4n87kZO",  paper: "https://amzn.to/4elYTrm"  },
@@ -438,7 +438,12 @@ const LINKS = {
   "Blood Meridian":                      { kindle: "https://amzn.to/4eGTdbC",  paper: "https://amzn.to/4ttHL6S"  },
   "American Pastoral":                   { kindle: "https://amzn.to/4wpaAnG",  paper: "https://amzn.to/4fcFOIn"  },
   "White Noise":                         { kindle: "https://amzn.to/4u6n5Tq",  paper: "https://amzn.to/4tpZN9V"  },
-  "Infinite Jest":                       { kindle: "https://amzn.to/4eH8dWT",  paper: "https://amzn.to/4eH4nNC"  }
+  "Infinite Jest":                       { kindle: "https://amzn.to/4eH8dWT",  paper: "https://amzn.to/4eH4nNC"  },
+  "What We Talk About When We Talk About Love": { kindle: "https://amzn.to/4tBpc0K", paper: "https://amzn.to/3PAdd5v" },
+  "The Wind-Up Bird Chronicle":          { kindle: "https://amzn.to/3PF64AT",  paper: "https://amzn.to/4dHtfDO"  },
+  "A Good Man Is Hard to Find":          { kindle: "https://amzn.to/4dNO1l9",  paper: "https://amzn.to/4dbHEYM"  },
+  "The Rings of Saturn":                 { kindle: "https://amzn.to/4faoYdt",  paper: "https://amzn.to/4ddu1bA"  },
+  "The Sound and the Fury":              { kindle: "https://amzn.to/43eDiKu",  paper: "https://amzn.to/42FxglV"  }
 };
 
 // ── BOOK DATABASE ──
@@ -981,6 +986,71 @@ const BOOKS = [
     tags:["USA","Postmodern","Addiction","Dark Comedy","Challenge"],
     bio:"David Foster Wallace was one of the most talented and troubled writers of his generation. Infinite Jest took him three years to write and arrived in 1996 as a cultural phenomenon. His essays and short stories are equally remarkable. He struggled with depression throughout his life and died by suicide in 2008, leaving an unfinished novel, The Pale King, published posthumously.",
     scores:{ dark:2, hopeful:1, curious:3, escapist:1, short:0, medium:0, long:3, any:2, easy:0, moderate:0, hard:3 }
+  },
+  {
+    key:"What We Talk About When We Talk About Love",
+    author:"Raymond Carver",
+    book:"What We Talk About When We Talk About Love",
+    year:"1981 · USA",
+    emoji:"🥃",
+    headline:"The short story at its most devastating.",
+    sub:"Carver strips language down to the bone — and finds everything there.",
+    why:"You want something short, sharp, and quietly devastating. Carver's stories of working-class Americans — their failing marriages, their drinking, their unarticulated grief — are stripped to near-silence, yet they carry an enormous emotional charge. You can read the whole collection in an afternoon and spend weeks thinking about it.",
+    tags:["USA","Short Stories","Minimalism","Relationships","Classic"],
+    bio:"Raymond Carver grew up in poverty in Oregon and worked menial jobs for most of his adult life while writing in stolen hours. His minimalist short fiction made him the most influential American short story writer of the late 20th century. He battled alcoholism for years before achieving sobriety, and died of lung cancer in 1988 at age fifty.",
+    scores:{ dark:3, hopeful:0, curious:2, escapist:0, short:3, medium:1, long:0, any:2, easy:2, moderate:3, hard:1 }
+  },
+  {
+    key:"The Wind-Up Bird Chronicle",
+    author:"Haruki Murakami",
+    book:"The Wind-Up Bird Chronicle",
+    year:"1994 · Japan",
+    emoji:"🐦",
+    headline:"A hypnotic descent into mystery and memory.",
+    sub:"Murakami's most ambitious novel — and his strangest.",
+    why:"You're drawn to something curious and immersive, long enough to get properly lost in. Toru Okada sets out to find his missing cat and is drawn into a labyrinth of dreams, wartime atrocities, and inexplicable events. Murakami at his most expansive: dreamlike, unsettling, and strangely beautiful.",
+    tags:["Japan","Mystery","Surrealism","Memory","Epic"],
+    bio:"Haruki Murakami is Japan's most internationally celebrated novelist, translated into more than fifty languages. He ran a jazz bar in Tokyo before turning to writing full-time after a sudden inspiration at a baseball game in 1978. He is also a dedicated marathon runner and has written a memoir about the parallels between running and writing.",
+    scores:{ dark:2, hopeful:1, curious:3, escapist:2, short:0, medium:0, long:3, any:2, easy:0, moderate:2, hard:3 }
+  },
+  {
+    key:"A Good Man Is Hard to Find",
+    author:"Flannery O'Connor",
+    book:"A Good Man Is Hard to Find",
+    year:"1955 · USA",
+    emoji:"🌩️",
+    headline:"Grotesque, funny, and spiritually electric.",
+    sub:"Southern Gothic at its most violent and most visionary.",
+    why:"You want something dark, challenging, and utterly unlike anything else — O'Connor delivers exactly that. Her stories of the American South are full of misfits, sudden violence, and moments of terrible grace. The title story alone — a family road trip that ends in catastrophe — is one of the most discussed short stories in American literature. Unsettling and unforgettable.",
+    tags:["USA","Southern Gothic","Dark","Short Stories","Violence"],
+    bio:"Flannery O'Connor was a devout Catholic from Georgia who spent the last thirteen years of her life on a farm in Milledgeville, managing the lupus that would kill her at thirty-nine. She wrote two novels and thirty-two short stories in that time, tending to her famous collection of peacocks and producing some of the most original fiction in the American canon.",
+    scores:{ dark:3, hopeful:0, curious:2, escapist:0, short:3, medium:1, long:0, any:2, easy:1, moderate:2, hard:3 }
+  },
+  {
+    key:"The Rings of Saturn",
+    author:"W.G. Sebald",
+    book:"The Rings of Saturn",
+    year:"1995 · Germany / England",
+    emoji:"🌫️",
+    headline:"A walk through history, memory, and melancholy.",
+    sub:"Unlike any other book you will ever read.",
+    why:"You want something curious and intellectually rewarding — a book that treats reading as a contemplative act. Sebald walks the Suffolk coast and meditates, with dreamlike precision, on the decline of empires, the nature of memory, the herring trade, and the destruction of the Second World War. It defies genre. You'll emerge from it feeling you've seen the world differently.",
+    tags:["Germany","Essay","Memory","History","Melancholy"],
+    bio:"W.G. Sebald was a German writer who spent most of his adult life as an academic in England. He published his first novel at forty-four and produced only four major prose works before dying in a car accident in 2001. In that short time he created a form entirely his own — part essay, part travelogue, part elegy — that has influenced a generation of writers.",
+    scores:{ dark:2, hopeful:0, curious:3, escapist:1, short:0, medium:3, long:1, any:2, easy:0, moderate:2, hard:3 }
+  },
+  {
+    key:"The Sound and the Fury",
+    author:"William Faulkner",
+    book:"The Sound and the Fury",
+    year:"1929 · USA",
+    emoji:"🌀",
+    headline:"The most technically daring American novel ever written.",
+    sub:"Four narrators, one story — none of them quite telling the truth.",
+    why:"You want the ultimate challenge — a book that demands everything and gives it back tenfold. Faulkner tells the story of the disintegrating Compson family four times, through four radically different consciousnesses, including the stream-of-consciousness of a man with a severe intellectual disability. It is difficult, disorienting, and — once it opens up — one of the most emotionally devastating novels in the language.",
+    tags:["USA","Southern Gothic","Stream of Consciousness","Challenge","Classic"],
+    bio:"William Faulkner grew up in Oxford, Mississippi, and set almost all of his fiction in a fictional version of the same county — Yoknapatawpha — which he mapped, named, and populated with such obsessive precision that it became one of literature's great invented worlds. He won the Nobel Prize in 1949 and remains the supreme chronicler of the American South.",
+    scores:{ dark:3, hopeful:0, curious:2, escapist:0, short:0, medium:2, long:1, any:2, easy:0, moderate:0, hard:3 }
   }
 ];
 
@@ -1125,6 +1195,7 @@ document.getElementById('retakeBtn').addEventListener('click', function(){
 
 // ── INIT ──
 updateProgress(1);
+document.getElementById('bookCount').textContent = '📚 ' + BOOKS.length + ' essential books';
 setTimeout(() => {
   const c = document.getElementById('q1');
   if(c) c.classList.add('visible');
