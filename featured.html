@@ -368,21 +368,21 @@ body {
   opacity: .75;
   padding: 0 26px 10px;
 }
-.card-excerpt {
+.card-essay {
   font-size: 14.5px;
   line-height: 1.78;
   color: var(--ink-soft);
   padding: 0 26px 18px;
   text-align: justify;
   text-justify: inter-word;
-  flex: 1;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
 }
-.card-excerpt strong { color: var(--ink); font-weight: 600; }
-.card-excerpt.expanded {
+.card-essay strong { color: var(--ink); font-weight: 600; }
+.card-essay em { font-style: italic; }
+.card-essay.expanded {
   display: block;
   overflow: visible;
   -webkit-line-clamp: unset;
@@ -410,37 +410,6 @@ body {
 .card-expand-btn:hover { background: var(--paper); }
 .expand-icon { transition: transform .3s ease; font-size: 11px; }
 .expand-icon.open { transform: rotate(180deg); }
-
-/* ── FULL ESSAY ── */
-.card-full-essay {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height .4s ease, padding .4s ease;
-  padding: 0 26px;
-  border-top: none;
-}
-.card-full-essay.open {
-  max-height: 2000px;
-  padding: 0 26px 26px;
-  border-top: 1px solid var(--border-s);
-}
-.essay-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin: 18px 0 12px;
-}
-.essay-text {
-  font-size: 15px;
-  line-height: 1.85;
-  color: var(--ink-soft);
-  text-align: justify;
-  text-justify: inter-word;
-}
-.essay-text strong { color: var(--ink); font-weight: 600; }
-.essay-text em { font-style: italic; }
 
 /* ── NO RESULTS ── */
 .no-results {
@@ -494,7 +463,7 @@ footer {
   .author-grid { grid-template-columns: 1fr; }
   .search-wrap input { width: 150px; }
   .card-name { font-size: 20px; }
-  .card-excerpt { font-size: 14px; }
+  .card-essay { font-size: 14px; }
   .controls-right { gap: 6px; }
   .count-pill { display: none; }
   .nav-brand { font-size: 16px; }
@@ -604,6 +573,15 @@ const AUTHORS = [
     spotlightBook: "Essential Work: One Hundred Years of Solitude (1967)",
     excerpt: "Gabriel García Márquez was born in Aracataca, a small town on the Colombian coast, and raised largely by his maternal grandparents — a combination that would prove fateful. His grandmother told stories of the supernatural with the same flat, matter-of-fact conviction she used for the weather, and his grandfather, a retired colonel, carried within him the long, bloody memory of Colombia's civil wars. Out of these two inheritances — magic and history, wonder and grief — García Márquez forged an entirely new way of writing about the world. <strong>One Hundred Years of Solitude</strong> (1967) arrived in Latin America like a thunderclap: the multigenerational saga of the Buendía family and their mythical town of Macondo, where ghosts walk among the living, rain falls for four years without stopping, and a plague of insomnia causes the entire population to forget the names of things.",
     essay: "Gabriel García Márquez was born in Aracataca, a small town on the Colombian coast, and raised largely by his maternal grandparents — a combination that would prove fateful. His grandmother told stories of the supernatural with the same flat, matter-of-fact conviction she used for the weather, and his grandfather, a retired colonel, carried within him the long, bloody memory of Colombia's civil wars. Out of these two inheritances — magic and history, wonder and grief — García Márquez forged an entirely new way of writing about the world. <strong>One Hundred Years of Solitude</strong> (1967) arrived in Latin America like a thunderclap: the multigenerational saga of the Buendía family and their mythical town of Macondo, where ghosts walk among the living, rain falls for four years without stopping, and a plague of insomnia causes the entire population to forget the names of things. The novel sold a million copies in its first year and was translated into more than forty languages, making García Márquez the most widely read Spanish-language writer since Cervantes. He won the Nobel Prize in 1982. But to reduce him to <em>One Hundred Years</em> is to miss the precision of <strong>Love in the Time of Cholera</strong>, the cold, furious economy of <strong>Chronicle of a Death Foretold</strong>, or the devastating <strong>No One Writes to the Colonel</strong> — a novella so spare it seems cut from stone. He called his method 'a completely true account of reality' and insisted, with absolute seriousness, that everything in his fiction had actually happened."
+  },
+  {
+    name: "Virginia Woolf",
+    dates: "1882–1941",
+    nationality: "England",
+    region: "Europe",
+    century: "20th",
+    spotlightBook: "Essential Work: Mrs Dalloway (1925)",
+    essay: "Virginia Woolf was born Adeline Virginia Stephen in Kensington in 1882, into one of the great intellectual households of late-Victorian England — her father was the critic and biographer Leslie Stephen, her godfather was William Makepeace Thackeray. She lost her mother at thirteen, her half-sister at fifteen, her father at twenty-two, and suffered the first of several mental breakdowns before she had written a word of fiction. What emerged from this crucible was a writer of such formal originality that she effectively reinvented what the novel could do. <strong>Mrs Dalloway</strong> (1925) takes place entirely within a single June day in London, moving fluidly between the consciousness of Clarissa Dalloway preparing for a party and Septimus Warren Smith, a shell-shocked veteran she will never meet. <strong>To the Lighthouse</strong> (1927) dissolves the boundaries between thought and time with a delicacy that has never been matched. <strong>The Waves</strong> (1931) abandons conventional narrative entirely in favour of six interwoven soliloquies that trace a group of friends from childhood to old age. She was also one of the great essayists in the language — <strong>A Room of One's Own</strong> (1929), her extended argument for women's intellectual and economic independence, remains essential reading nearly a century later. Woolf was a central figure in the Bloomsbury Group, the loose constellation of writers, artists, and thinkers — among them E.M. Forster, John Maynard Keynes, and Lytton Strachey — who gathered around her and her sister Vanessa in the years before and after the First World War. She co-founded the Hogarth Press with her husband Leonard in 1917, initially as a hobby; it went on to publish T.S. Eliot, Katherine Mansfield, and the first English translations of Freud. In March 1941, as the Second World War closed in and fearing the return of madness, she filled her pockets with stones and walked into the River Ouse near her home in Sussex. She was fifty-nine. The letters she left for Leonard are among the most heartbreaking documents in literary history."
   }
 ];
 
@@ -662,15 +640,11 @@ function render() {
         <div class="card-name">${a.name}</div>
         <div class="card-dates">${a.dates} · ${a.nationality}</div>
         <div class="card-spotlight">${a.spotlightBook}</div>
-        <div class="card-excerpt">${a.excerpt}</div>
+        <div class="card-essay" id="text-${cardId}">${a.essay}</div>
         <button class="card-expand-btn" onclick="toggleEssay('${cardId}', this)" aria-expanded="false">
           <span class="expand-icon" id="icon-${cardId}">▼</span>
           <span id="label-${cardId}">Read Full Profile</span>
         </button>
-      </div>
-      <div class="card-full-essay" id="${cardId}">
-        <div class="essay-label">Full Profile</div>
-        <div class="essay-text">${a.essay}</div>
       </div>
     `;
 
@@ -686,14 +660,12 @@ function render() {
 
 // ── TOGGLE ESSAY ──
 function toggleEssay(id, btn) {
-  const essay   = document.getElementById(id);
-  const icon    = document.getElementById('icon-' + id);
-  const label   = document.getElementById('label-' + id);
-  const excerpt = btn.closest('.acard').querySelector('.card-excerpt');
-  const isOpen  = essay.classList.contains('open');
-  essay.classList.toggle('open', !isOpen);
+  const text   = document.getElementById('text-' + id);
+  const icon   = document.getElementById('icon-' + id);
+  const label  = document.getElementById('label-' + id);
+  const isOpen = text.classList.contains('expanded');
+  text.classList.toggle('expanded', !isOpen);
   icon.classList.toggle('open', !isOpen);
-  excerpt.classList.toggle('expanded', !isOpen);
   btn.setAttribute('aria-expanded', String(!isOpen));
   label.textContent = isOpen ? 'Read Full Profile' : 'Close Profile';
 }
